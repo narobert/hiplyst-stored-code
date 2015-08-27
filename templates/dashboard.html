@@ -21,6 +21,13 @@
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
 
+  soundManager.url = '/swf/';
+  soundManager.debugMode = false;
+  soundManager.flashVersion = 9; // optional: shiny features (default = 8)
+  soundManager.useFlashBlock = true; // optionally, enable when you're ready to dive in
+  soundManager.useHTML5Audio = true; // enable HTML5 audio support, if you're feeling adventurous.
+  soundManager.useHighPerformance = true;
+
   // Initializes VK app
   VK.init({
       apiId: '5047548'
@@ -48,7 +55,7 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "<div>" + data.response[i]["title"] + " " + data.response[i]["artist"] + " <a href=" + data.response[i]["url"] + ">Play</a></div>";
+                  searchResults += "<div>" + data.response[i]["title"] + " " + data.response[i]["artist"] + " <a onclick=playTrack(" + data.response[i]["url"] + ")>Play</a></div>";
               }
               document.getElementById("search_results").innerHTML = searchResults;
           },
@@ -59,6 +66,30 @@
       return true;
 
   };
+
+  function playTrack(url) {
+      soundManager.stop('current');
+      soundManager.destroySound("current");
+      soundManager.createSound({
+          id: 'current',
+          url: url,
+          autoLoad: true,
+          autoPlay: true,
+          volume: window.localStorage["volume"] || 100,
+          onconnect: function () {
+          },
+          onload: function() {
+          },
+          whileloading: function () {
+          },
+          whileplaying: function () {
+          },
+          onjustbeforefinish: function () {
+          },
+          onfinish: function () {
+          }
+      });
+  }
 
   // Loads search query
   function load() {
