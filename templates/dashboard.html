@@ -8,7 +8,7 @@
   </style>
 
   <!-- Enables ajax requests -->
-  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 
 </head>
 <body>
@@ -18,6 +18,7 @@
   <div id="get_results" onclick="load();"><button>Get results</button></div>
   <div id="search_results"></div>
 
+  <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
 
@@ -70,8 +71,7 @@
 
   function playTrack(url) {
       console.log("hello");
-      soundManager.createSound({
-          id: 'current',
+      var current = soundManager.createSound({
           url: url,
           autoLoad: true,
           autoPlay: true,
@@ -90,6 +90,7 @@
           onfinish: function () {
           }
       });
+      current.play();
   }
 
   // Loads search query
