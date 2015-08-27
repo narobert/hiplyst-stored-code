@@ -98,8 +98,8 @@
   // Loads search query
   function load() {
       var query = document.getElementById("search_input").value;
-      console.log(query);
-      // getMusic("the+beatles", "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
+      query.split(' ').join('+');
+      getMusic(query, "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
   }
 
   // VK.Auth.getLoginStatus(authInfo);
