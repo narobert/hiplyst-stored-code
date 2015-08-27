@@ -11,7 +11,7 @@
 <body>
 
   <p>Hello world.</p>
-  <div id="login_button" onclick="VK.Auth.login(authInfo, VK.Access.AUDIO);"></div>
+  <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
 
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
@@ -19,6 +19,8 @@
   VK.init({
       apiId: '5047548'
   });
+
+  console.log(this.access_token);
 
   function authInfo(response) {
       if (response.session) {
@@ -29,15 +31,6 @@
           alert('not auth');
       }
   }
-
-  VK.Api.call('video.get',{videos: '-4363_136089719,13245770_137352259'}, function(data) {
-      if (data.response) { 
-          // data.response is object
-          alert("data.response is object");
-          console.log(data);
-          console.log(data.response);
-      } 
-  });
 
   //VK.Auth.getLoginStatus(authInfo);
   VK.UI.button('login_button');
