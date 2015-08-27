@@ -65,17 +65,17 @@
 
   };
 
-  // Optimize sound manager speed and quality
+  // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(data) {
       soundManager.stop("current");
       soundManager.destroySound("current");
-      soundManager.createSound({
+      var current = soundManager.createSound({
           id: "current",
           url: data,
           autoLoad: true,
           autoPlay: true,
-          stream: true,
-          volume: 50,
+          // stream: true,
+          volume: 100,
           onconnect: function () {
           },
           onload: function() {
