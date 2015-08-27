@@ -15,7 +15,7 @@
 
   <p>Hello world.</p>
   <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
-  <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
+  <input id="search_input" onkeypress="load();" placeholder="Search for songs, artists, or albums"></input>
   <button type="button" id="search_button" onclick="load();">Send</button>
   <div id="search_results"></div>
 
