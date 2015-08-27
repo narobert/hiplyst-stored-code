@@ -39,6 +39,8 @@
   // Method to get results from search query
   function getMusic(query, access_token) {
 
+      document.getElementById("search_results").innerHTML = "<center><img src='/static/images/loading.gif'></center>";
+
       $.ajax({
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
           dataType: "jsonp",
