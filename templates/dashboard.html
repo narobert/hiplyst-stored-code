@@ -22,9 +22,12 @@
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
 
-  soundManager.setup({
-      url: '/Users/narobert/hiplyst/static/swf/',
-  });
+  soundManager.url = '/swf/';
+  soundManager.debugMode = true;
+  soundManager.flashVersion = 9; // optional: shiny features (default = 8)
+  soundManager.useFlashBlock = true; // optionally, enable when you're ready to dive in
+  soundManager.useHTML5Audio = true; // enable HTML5 audio support, if you're feeling adventurous.
+  soundManager.useHighPerformance = true;
 
   // Initializes VK app
   VK.init({
@@ -67,7 +70,6 @@
 
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(data) {
-      soundManager.stop("current");
       soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
