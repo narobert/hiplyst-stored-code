@@ -68,7 +68,8 @@
   function playTrack(data) {
       soundManager.stop("current");
       soundManager.destroySound("current");
-      var current = soundManager.createSound({
+      soundManager.createSound({
+          id: "current",
           url: data,
           autoLoad: true,
           autoPlay: true,
