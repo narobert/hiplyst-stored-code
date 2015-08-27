@@ -16,7 +16,7 @@
   <p>Hello world.</p>
   <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
   <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
-  <div id="get_results" onclick="load();"><button>Get results</button></div>
+  <button id="search_button" onclick="load();">Send</button>
   <div id="search_results"></div>
 
   <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
@@ -97,7 +97,9 @@
 
   // Loads search query
   function load() {
-      getMusic("the+beatles", "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
+      var query = document.getElementById("search_input").val();
+      console.log(query);
+      // getMusic("the+beatles", "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
   }
 
   // VK.Auth.getLoginStatus(authInfo);
