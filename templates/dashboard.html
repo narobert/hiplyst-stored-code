@@ -22,10 +22,10 @@
   });
 
   function authInfo(response) {
-      //console.log(response);
-      //console.log(response.session);
       if (response.session) {
           alert('user: ' + response.session.mid);
+          console.log(response);
+          console.log(response.session);
       } else {
           alert('not auth');
       }
