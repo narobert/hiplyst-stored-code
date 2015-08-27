@@ -42,7 +42,8 @@
           dataType: "jsonp",
           success: function(data) {
               for (var i = 1; i < data.response.length; i++) {
-                  html += "title: " + data.response[i]["title"] + " --> artist: " + data.response[i]["artist"] + "\n"; 
+                  html += "title: " + data.response[i]["title"] + " --> artist: " + data.response[i]["artist"] + "\n";
+                  console.log(html);
               }
           },
           error: function() {
@@ -50,7 +51,7 @@
           }
       });
 
-      document.getElementById("search_results").innerHTML = "cool";
+      document.getElementById("search_results").innerHTML = html;
       return true;
 
   };
