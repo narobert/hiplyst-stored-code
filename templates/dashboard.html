@@ -7,6 +7,7 @@
   }
   </style>
 
+  <!-- Enables ajax requests -->
   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
 
 </head>
@@ -19,10 +20,12 @@
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
 
+  // Initializes VK app
   VK.init({
       apiId: '5047548'
   });
 
+  // User info
   function authInfo(response) {
       if (response.session) {
           alert('user: ' + response.session.mid);
@@ -33,35 +36,34 @@
       }
   }
 
+  // Method to get results from search query
   function getMusic(query, access_token) {
-
-      var html = "";
 
       $.ajax({
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
           dataType: "jsonp",
           success: function(data) {
+              var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  html += "title: " + data.response[i]["title"] + " --> artist: " + data.response[i]["artist"] + "\n";
-                  console.log(html);
+                  searchResults += "title: " + data.response[i]["title"] + " --> artist: " + data.response[i]["artist"] + "\n";
               }
+              document.getElementById("search_results").innerHTML = searchResults;
           },
           error: function() {
               alert("Something wrong!");
           }
       });
-
-      document.getElementById("search_results").innerHTML = html;
       return true;
 
   };
 
+  // Loads search query (will be replaced)
   function load() {
       getMusic("the+beatles", "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
   }
   window.onload = load;
 
-  //VK.Auth.getLoginStatus(authInfo);
+  // VK.Auth.getLoginStatus(authInfo);
   VK.UI.button('login_button');
 
   </script>
