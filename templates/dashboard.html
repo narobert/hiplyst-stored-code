@@ -35,15 +35,15 @@
 
   function getMusic(query, access_token) {
 
-      var searchResults = ""
+      var searchResults = "";
 
       $.ajax({
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
           dataType: "jsonp",
           success: function(data) {
-              console.log("hello");
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "title: " + data.response[i].title + " --> artist: " + data.response[i].artist + "\n"; 
+                  console.log(data.response[i]["title");
+                  searchResults += "title: " + data.response[i]["title"] + " --> artist: " + data.response[i]["artist"] + "\n"; 
               }
           },
           error: function() {
@@ -51,8 +51,9 @@
           }
       });
 
+      console.log("everything good");
       var search_results = document.getElementById("search_results");
-      search_results.innerHTML = searchResults;
+      search_results.innerHTML = "hello there";
       return true;
   };
 
