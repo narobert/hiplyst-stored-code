@@ -61,7 +61,7 @@
               for (var i = 1; i < data.response.length; i++) {
                   searchResults += "<div>" + data.response[i]["title"] + " " + data.response[i]["artist"] + " <a onclick=playTrack('" + data.response[i]["url"] + "')>Play</a></div>";
               }
-              if searchResults == "" {
+              if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums :(";
               }
               document.getElementById("search_results").innerHTML = searchResults;
