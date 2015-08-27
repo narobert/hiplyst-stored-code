@@ -40,8 +40,9 @@
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
           dataType: "jsonp",
           success: function(data) {
+              console.log("hello");
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults.push(data.response[i]);
+                  console.log(data.response[i]);
               }
           },
           error: function() {
@@ -49,7 +50,6 @@
           }
       });
       return true;
-      console.log(searchResults);
   };
 
   function load() {
