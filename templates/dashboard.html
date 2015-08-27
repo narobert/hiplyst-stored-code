@@ -36,7 +36,7 @@
 
       $.ajax({
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
-          dataType: 'jsonp',
+          dataType: "json",
           success: function(data) {
               for (var i = 1; i < data.response.length; i++) {
                   searchResults.push(data.response[i]);
@@ -50,7 +50,10 @@
       console.log(searchResults);
   };
 
-  getMusic("the+beatles", "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
+  function load() {
+      getMusic("the+beatles", "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
+  }
+  window.onload = load;
 
   //VK.Auth.getLoginStatus(authInfo);
   VK.UI.button('login_button');
