@@ -14,7 +14,6 @@
   <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
 
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
-  <script type="text/javascript" src="http://vk.com/js/api/xd_connection.js?2";></script>
   <script type="text/javascript">
 
   VK.init({
@@ -31,14 +30,14 @@
       }
   }
 
-  //VK.api('video.get',{videos: '-4363_136089719,13245770_137352259'}, function(data) {
-    //  if (data.response) { 
-      //    // data.response is object
-        //  alert("data.response is object");
-          //console.log(data);
-          //console.log(data.response);
-      //} 
-  //});
+  VK.api('video.get',{videos: '-4363_136089719,13245770_137352259'}, function(data) {
+      if (data.response) { 
+          // data.response is object
+          alert("data.response is object");
+          console.log(data);
+          console.log(data.response);
+      } 
+  });
 
   //VK.Auth.getLoginStatus(authInfo);
   VK.UI.button('login_button');
