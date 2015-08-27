@@ -48,7 +48,7 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "<div>" + data.response[i]["title"] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + data.response[i]["artist"] + "</div>";
+                  searchResults += "<div>" + data.response[i]["title"] + "&nbsp;&nbsp;" + data.response[i]["artist"] + "&nbsp;&nbsp;" + data.response[i]["url"] + "</div>";
               }
               document.getElementById("search_results").innerHTML = searchResults;
           },
