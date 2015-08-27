@@ -15,7 +15,7 @@
 
   <p>Hello world.</p>
   <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
-  <input id="search_input" onkeyup="clickButton(this);" placeholder="Search for songs, artists, or albums"></input>
+  <input id="search_input" onkeyup="clickButton(event);" placeholder="Search for songs, artists, or albums"></input>
   <button type="button" id="search_button" onclick="load();">Send</button>
   <div id="search_results"></div>
 
@@ -100,7 +100,9 @@
 
   // Click button when enter pressed
   function clickButton(event) {
+      console.log(event);
       if (event.keyCode == 13) {
+          console.log(event);
           document.getElementById('search_button').click();
       }
   }
