@@ -22,8 +22,9 @@
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
 
-  soundManager.url = '/swf/';
+  soundManager.url = '/static/swf/';
   soundManager.debugMode = true;
+  soundManager.preferFlash: true;
   soundManager.flashVersion = 9; // optional: shiny features (default = 8)
   soundManager.useFlashBlock = true; // optionally, enable when you're ready to dive in
   soundManager.useHTML5Audio = true; // enable HTML5 audio support, if you're feeling adventurous.
@@ -74,9 +75,8 @@
       var current = soundManager.createSound({
           id: "current",
           url: data,
-          //autoLoad: true,
+          autoLoad: true,
           autoPlay: true,
-          // stream: true,
           volume: 100,
           onconnect: function () {
           },
