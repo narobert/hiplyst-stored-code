@@ -38,7 +38,7 @@
 
       $.ajax({
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
-          dataType: "json",
+          dataType: "jsonp",
           success: function(data) {
               for (var i = 1; i < data.response.length; i++) {
                   searchResults.push(data.response[i]);
