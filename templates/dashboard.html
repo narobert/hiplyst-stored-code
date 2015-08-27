@@ -66,7 +66,8 @@
   };
 
   function playTrack(data) {
-      console.log("hello");
+      soundManager.stop("current");
+      soundManager.destroySound("current");
       var current = soundManager.createSound({
           url: data,
           autoLoad: true,
