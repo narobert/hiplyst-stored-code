@@ -53,7 +53,7 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "<div>" + data.response[i]["title"] + " " + data.response[i]["artist"] + " <a onclick='playTrack(" + data + ")'>Play</a></div>";
+                  searchResults += "<div>" + data.response[i]["title"] + " " + data.response[i]["artist"] + " <a onclick=playTrack('" + data + "')>Play</a></div>";
               }
               document.getElementById("search_results").innerHTML = searchResults;
           },
