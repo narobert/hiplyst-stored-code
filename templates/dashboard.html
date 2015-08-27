@@ -42,7 +42,7 @@
           dataType: "jsonp",
           success: function(data) {
               for (var i = 1; i < data.response.length; i++) {
-                  console.log(data.response[i]["title");
+                  console.log(data.response[i]["title"]);
                   searchResults += "title: " + data.response[i]["title"] + " --> artist: " + data.response[i]["artist"] + "\n"; 
               }
           },
