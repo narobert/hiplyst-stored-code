@@ -21,12 +21,13 @@
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
 
-  soundManager.url = '/swf/';
-  soundManager.debugMode = false;
-  soundManager.flashVersion = 9; // optional: shiny features (default = 8)
-  soundManager.useFlashBlock = true; // optionally, enable when you're ready to dive in
-  soundManager.useHTML5Audio = true; // enable HTML5 audio support, if you're feeling adventurous.
-  soundManager.useHighPerformance = true;
+  soundManager.setup({
+      url: '/Users/narobert/hiplyst/static/swf/',
+      flashVersion: 9,
+      onready: function() {
+          soundManager.createSound();
+      }
+  });
 
   // Initializes VK app
   VK.init({
@@ -68,17 +69,17 @@
   };
 
   function playTrack(url) {
-      soundManager.stop('current');
-      soundManager.destroySound("current");
+      console.log("hello");
       soundManager.createSound({
           id: 'current',
           url: url,
           autoLoad: true,
           autoPlay: true,
-          volume: window.localStorage["volume"] || 100,
+          volume: 50,
           onconnect: function () {
           },
           onload: function() {
+              alert('The sound ' + this.id + ' loaded!');
           },
           whileloading: function () {
           },
