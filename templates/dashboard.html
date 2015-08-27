@@ -1,1 +1,37 @@
-Hello world.
+<html>
+<head>
+
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+
+</head>
+<body>
+
+  <p>Hello world.</p>
+  <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
+
+  <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
+  <script type="text/javascript">
+
+  VK.init({
+      apiId: '5047548'
+  });
+
+  function authInfo(response) {
+      if (response.session) {
+          alert('user: ' + response.session.mid);
+      } else {
+          alert('not auth');
+      }
+  }
+
+  VK.Auth.getLoginStatus(authInfo);
+  VK.UI.button('login_button');
+
+  </script>
+
+</body>
+</html>
