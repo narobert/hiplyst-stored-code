@@ -15,6 +15,7 @@
 
   <p>Hello world.</p>
   <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
+  <div id="get_results" onclick="load();"><button>Get results</button></div>
   <div id="search_results"></div>
 
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
@@ -59,11 +60,10 @@
 
   };
 
-  // Loads search query (will be replaced)
+  // Loads search query
   function load() {
       getMusic("the+beatles", "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
   }
-  window.onload = load;
 
   // VK.Auth.getLoginStatus(authInfo);
   VK.UI.button('login_button');
