@@ -11,7 +11,7 @@
 <body>
 
   <p>Hello world.</p>
-  <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
+  <div id="login_button" onclick="VK.Auth.login(authInfo, VK.Access.VIDEO);"></div>
 
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
@@ -30,7 +30,7 @@
       }
   }
 
-  VK.api('video.get',{videos: '-4363_136089719,13245770_137352259'}, function(data) {
+  VK.Api.call('video.get',{videos: '-4363_136089719,13245770_137352259'}, function(data) {
       if (data.response) { 
           // data.response is object
           alert("data.response is object");
