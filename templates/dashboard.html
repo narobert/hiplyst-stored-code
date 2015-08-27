@@ -31,7 +31,7 @@
       }
   }
 
-  VK.api('video.get',{videos: '-4363_136089719,13245770_137352259'}, function(data) {
+  VK.Api.call('video.get',{videos: '-4363_136089719,13245770_137352259'}, function(data) {
       console.log(data);
       console.log(data.response);
       if (data.response) { 
