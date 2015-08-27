@@ -53,7 +53,7 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "<div>" + data.response[i]["title"] + " " + data.response[i]["artist"] + " <a onclick=playTrack(" + data.response[i]["url"] + ")>Play</a></div>";
+                  searchResults += "<div>" + data.response[i]["title"] + " " + data.response[i]["artist"] + " <a>Play</a></div>";
               }
               document.getElementById("search_results").innerHTML = searchResults;
           },
@@ -65,17 +65,16 @@
 
   };
 
-  function playTrack(url) {
+  function playTrack(data) {
       console.log("hello");
       var current = soundManager.createSound({
-          url: url,
+          url: data.response[i]["url"],
           autoLoad: true,
           autoPlay: true,
           volume: 50,
           onconnect: function () {
           },
           onload: function() {
-              alert('The sound ' + this.id + ' loaded!');
           },
           whileloading: function () {
           },
