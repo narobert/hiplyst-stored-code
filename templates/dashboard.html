@@ -14,6 +14,7 @@
 
   <p>Hello world.</p>
   <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
+  <div id="search_results"></div>
 
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
@@ -34,7 +35,7 @@
 
   function getMusic(query, access_token) {
 
-      var searchResults = []
+      var searchResults = ""
 
       $.ajax({
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
@@ -42,13 +43,16 @@
           success: function(data) {
               console.log("hello");
               for (var i = 1; i < data.response.length; i++) {
-                  console.log(data.response[i]);
+                  searchResults += "title: " + data.response[i].title + " --> artist: " + data.response[i].artist + "\n"; 
               }
           },
           error: function() {
               alert("Something wrong!");
           }
       });
+
+      var search_results = document.getElementById("search_results");
+      search_results.innerHTML = searchResults;
       return true;
   };
 
