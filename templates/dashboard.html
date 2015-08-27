@@ -41,7 +41,7 @@
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
           dataType: "jsonp",
           success: function(data) {
-              for (var i = 1; i < data.response.length; i++) {
+              for (var i = 0; i < data.response.length; i++) {
                   console.log(data.response[i]["title"]);
                   searchResults += "title: " + data.response[i]["title"] + " --> artist: " + data.response[i]["artist"] + "\n"; 
               }
