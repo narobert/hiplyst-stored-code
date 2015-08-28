@@ -1,3 +1,10 @@
+/* --- override bootstrap --- */
+.navbar-default {
+  background-color: #567ca4;
+  border-color: #567ca4;
+}
+
+
 /* --- search query and results --- */
 .search_form_box {
   margin-top: 20px;
