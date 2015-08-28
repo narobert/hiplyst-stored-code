@@ -155,7 +155,7 @@
 
   };
 
-  // Optimize sound manager (add debugMode = true to hiplyst_7.0)
+  // Play track
   function playTrack(data, number) {
       soundManager.destroySound("current");
       var current = soundManager.createSound({
@@ -171,7 +171,7 @@
           whileloading: function () {
           },
           whileplaying: function () {
-              document.getElementById("playing" + number).innerHTML = "Playing...";
+              document.getElementById("playing" + number).innerHTML = '<a onclick="pauseTrack()">Pause</a>';
           },
           onjustbeforefinish: function () {
           },
@@ -179,6 +179,11 @@
               console.log("finished playing");
           }
       });
+  }
+
+  // Pause track
+  function pauseTrack() {
+      soundManager.pause("current");
   }
 
   // Press enter to load search query
