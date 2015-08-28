@@ -1,6 +1,6 @@
 /* --- override bootstrap --- */
-.navbar-changes {
-  border-radius: none;
+#navbar-changes {
+  border-radius: 0px;
   background-color: #567ca4;
   border-color: #567ca4;
 }
