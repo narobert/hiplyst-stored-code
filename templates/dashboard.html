@@ -202,6 +202,9 @@
           onstop: function() {
               console.log("7");
               document.getElementById("playing" + number).innerHTML = 'Play';
+              document.getElementById("playing" + number).onclick = function() {
+                  playTrack(data, number);
+              }
           },
           whileloading: function () {
           },
