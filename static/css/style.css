@@ -14,8 +14,7 @@
 }
 
 #navbar-caret {
-  border-right: 4px solid white;
-  border-left: 4px solid white;
+  border-top: 4px solid white;
 }
 
 /* --- search query and results --- */
@@ -27,9 +26,11 @@
 #search_input {
   margin-top: 3px;
   border-radius: 12px;
+  border: 1px solid #4b6d94;
   width: 270px;
   height: 28px;
   font-size: 12px;
+  background: #4b6d94;
 }
 
 #search_button {
