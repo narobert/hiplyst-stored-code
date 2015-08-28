@@ -1,15 +1,3 @@
-/* --- navbar --- */
-.navbar {
-  width: 100%;
-  background: #567ca4;
-  height: 60px;
-}
-
-/* --- body --- */
-.container {
-  padding: 20px;
-}
-
 /* --- search query and results --- */
 .search_form_box {
   margin-top: 20px;
