@@ -5,6 +5,19 @@
   border-color: #567ca4;
 }
 
+#navbar-brand-left {
+  color: white;
+}
+
+#navbar-list-items {
+  color: white;
+}
+
+#navbar-caret {
+  border-right: 4px solid white;
+  border-left: 4px solid white;
+}
+
 /* --- search query and results --- */
 .search_form_box {
   margin-top: 20px;
