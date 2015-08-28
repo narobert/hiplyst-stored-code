@@ -87,12 +87,12 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "<tr><td>" + data.response[i]["title"] + "</td><td>" + data.response[i]["artist"] + "</td><td><a onclick=playTrack('" + data.response[i]["url"] + "')>Play</a></td></tr>";
+                  searchResults += "<tr><td>" + data.response[i]["title"] + "</td><td>" + data.response[i]["artist"] + "</td><td><a id='playing' onclick=playTrack('" + data.response[i]["url"] + "')>Play</a></td></tr>";
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums :(";
               }
-              document.getElementById("search_results").innerHTML = "<table style='width:100%'><thead><tr><th>Title</th><th>Artist</th><th>Play</th></tr></thead><tbody>" + searchResults + "</tbody></table>";
+              document.getElementById("search_results").innerHTML = "<table style='width:100%'><thead><tr><th>Title</th><th>Artist</th><th>Click to play</th></tr></thead><tbody>" + searchResults + "</tbody></table>";
           },
           error: function() {
               alert("Something wrong!");
@@ -116,8 +116,10 @@
           onload: function() {
           },
           whileloading: function () {
+              document.getElementById("playing").innerHTML = "Loading...";
           },
           whileplaying: function () {
+              document.getElementById("playing").innerHTML = "Playing";
           },
           onjustbeforefinish: function () {
           },
