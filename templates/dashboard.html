@@ -157,7 +157,7 @@
 
   function pauseTrack(number) {
       soundManager.pause("current");
-      document.getElementById("playing" + number).innerHTML = 'Play';
+      document.getElementById("playing" + number).innerHTML = 'Pause';
       document.getElementById("playing" + number).onclick = resumeTrack;
   }
 
@@ -182,7 +182,7 @@
           },
           whileplaying: function () {
               document.getElementById("playing" + number).innerHTML = 'Pause';
-              document.getElementById("playing" + number).onclick = pauseTrack(number);
+              document.getElementById("playing" + number).onclick = this.pause();
           },
           onjustbeforefinish: function () {
           },
