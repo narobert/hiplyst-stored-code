@@ -104,7 +104,6 @@
 
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(data, number) {
-      document.querySelectorAll(".playing").innerHTML = "Play";
       soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
@@ -113,6 +112,7 @@
           autoPlay: true,
           volume: 100,
           onconnect: function () {
+              document.querySelectorAll(".playing").innerHTML = "Play";
           },
           onload: function() {
           },
