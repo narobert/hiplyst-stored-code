@@ -155,8 +155,10 @@
 
   };
 
-  function pauseTrack() {
+  function pauseTrack(number) {
       soundManager.pause("current");
+      document.getElementById("playing" + number).innerHTML = 'Play';
+      document.getElementById("playing" + number).onclick = resumeTrack;
   }
 
   function resumeTrack() {
@@ -176,15 +178,11 @@
           },
           onload: function() {
           },
-          onpause: function() {
-              document.getElementById("playing" + number).innerHTML = 'Play';
-              document.getElementById("playing" + number).onclick = resumeTrack;
-          },
           whileloading: function () {
           },
           whileplaying: function () {
               document.getElementById("playing" + number).innerHTML = 'Pause';
-              document.getElementById("playing" + number).onclick = pauseTrack;
+              document.getElementById("playing" + number).onclick = pauseTrack(number);
           },
           onjustbeforefinish: function () {
           },
