@@ -157,8 +157,6 @@
 
   function pauseTrack(number) {
       soundManager.pause("current");
-      document.getElementById("playing" + number).innerHTML = 'Pause';
-      document.getElementById("playing" + number).onclick = resumeTrack;
   }
 
   function resumeTrack() {
@@ -182,7 +180,7 @@
           },
           whileplaying: function () {
               document.getElementById("playing" + number).innerHTML = 'Pause';
-              document.getElementById("playing" + number).onclick = this.pause();
+              document.getElementById("playing" + number).onclick = pauseTrack;
           },
           onjustbeforefinish: function () {
           },
