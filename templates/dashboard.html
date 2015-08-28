@@ -87,7 +87,7 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "<tr><td>" + data.response[i]["title"] + "</td><td>" + data.response[i]["artist"] + "</td><td><a id='playing" + i + "' onclick=playTrack('2, 2')>Play</a></td></tr>";
+                  searchResults += "<tr><td>" + data.response[i]["title"] + "</td><td>" + data.response[i]["artist"] + "</td><td><a id='playing" + i + "' onclick=playTrack('" + data.response[i]["url"] + ", 2')>Play</a></td></tr>";
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
