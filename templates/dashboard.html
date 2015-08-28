@@ -168,7 +168,7 @@
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(data, number) {
       console.log("1");
-      soundManager.destruct("current");
+      soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
           url: data,
