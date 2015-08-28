@@ -17,9 +17,8 @@
 }
 
 .search_results_box {
-  padding: 10px;
-  border: 1px solid #959595;
-  border-radius: 4px;
+  width: 100%;
+  display: none;
 }
 
 #loading_gif {
