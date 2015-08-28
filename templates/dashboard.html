@@ -1,39 +1,84 @@
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hiplyst | Shared music playlists, ranked by the community</title>
 
-  <title>Hiplyst | Shared music playlists, ranked by the community</title>
+    <!-- Enables css stylesheets -->
+    <link type="text/css" href="/static/css/style.css" rel="stylesheet" />
+    <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet">
 
-  <!-- Enables css stylesheets -->
-  <link type="text/css" href="/static/css/style.css" rel="stylesheet" />
-
-  <style>
-  body {
-    padding: 20px;
-  }
-  table, th, td {
-    border: 1px solid #959595;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 10px;
-    text-align: left;
-  }
-  td a {
-    color: #0088cc;
-    cursor: pointer;
-  }
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  </style>
-
-  <!-- Enables ajax requests -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <style>
+    table, th, td {
+        border: 1px solid #959595;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    td a {
+        color: #0088cc;
+        cursor: pointer;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
 
 </head>
 <body>
 
-  <p>Hello world.</p>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand navbar-brand-centered">Brand</div>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-brand-centered">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>		        
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <!-- Hiplyst abroad version 2.0 -->
   <!-- <div id="login_button" onclick="VK.Auth.login(authInfo);"></div> -->
@@ -45,6 +90,10 @@
 
   <!-- Query search results -->
   <div id="search_results">
+
+  <!-- Enables bootstrap js -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.js"></script>
 
   <!-- Enables vk search and soundmanager -->
   <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
@@ -139,7 +188,7 @@
   function load() {
       var query = document.getElementById("search_input").value;
       query = query.split(' ').join('+');
-      getMusic(query, "179a91fa2f4db1466c32dffcdf4b3a08e2dc3b1bc1aab800f38c33d4e78af377d505e67e6e602a11fd0b009b4eed5");
+      getMusic(query, "12803f7f7d68f130d1a455278dbbb0ae1d225785810f361ebd169aabc89b1d86ceed682810284f02f302af262c9b5");
   }
 
   // VK.Auth.getLoginStatus(authInfo);
