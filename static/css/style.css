@@ -16,7 +16,7 @@
   padding: 5px;
 }
 
-.search_results_box {
+#search_results_box {
   width: 100%;
   display: none;
 }

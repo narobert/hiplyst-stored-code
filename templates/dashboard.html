@@ -18,7 +18,8 @@
     padding: 10px;
     text-align: left;
   }
-  th {
+  td a {
+    color: #0088cc;
     cursor: pointer;
   }
   tr:nth-child(even) {
@@ -50,9 +51,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <div id="search_results"></div>
-      </tr>
+      <div id="search_results"></div>
     </tbody>
   </table>
 
@@ -97,13 +96,13 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "<td>" + data.response[i]["title"] + "</td><td>" + data.response[i]["artist"] + "</td><td><a onclick=playTrack('" + data.response[i]["url"] + "')>Play</a></td>";
+                  searchResults += "<tr><td>" + data.response[i]["title"] + "</td><td>" + data.response[i]["artist"] + "</td><td><a onclick=playTrack('" + data.response[i]["url"] + "')>Play</a></td></tr>";
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums :(";
               }
               document.getElementById("search_results").innerHTML = searchResults;
-              document.getElementById("search_results").style.display == "block";
+              document.getElementById("search_results_box").style.display == "block";
           },
           error: function() {
               alert("Something wrong!");
