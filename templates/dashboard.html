@@ -24,9 +24,7 @@
     <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
     <button type="button" id="search_button" onclick="load();">Send</button>
   </div>
-  <div class="search_results_box">
-    <div id="search_results"></div>
-  </div>
+  <div id="search_results"></div>
 
   <!-- Enables vk search and soundmanager -->
   <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
@@ -74,7 +72,7 @@
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums :(";
               }
-              document.getElementById("search_results").innerHTML = searchResults;
+              document.getElementById("search_results").innerHTML = "<div class='search_results_box'>" + searchResults + "</div>";
           },
           error: function() {
               alert("Something wrong!");
