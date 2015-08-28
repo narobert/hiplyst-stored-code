@@ -5,7 +5,10 @@
 }
 
 #search_input {
-  width: 300px;
+  margin-top: 3px;
+  border-radius: 12px;
+  width: 270px;
+  height: 28px;
 }
 
 #search_button {
