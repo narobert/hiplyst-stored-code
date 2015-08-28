@@ -1,9 +1,9 @@
 /* --- override bootstrap --- */
-.navbar-default {
+.navbar-changes {
+  border-radius: none;
   background-color: #567ca4;
   border-color: #567ca4;
 }
-
 
 /* --- search query and results --- */
 .search_form_box {
