@@ -155,6 +155,10 @@
 
   };
 
+  function pauseTrack() {
+      console.log("hello");
+  }
+
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(data, number) {
       soundManager.destroySound("current");
@@ -171,7 +175,7 @@
           whileloading: function () {
           },
           whileplaying: function () {
-              document.getElementById("playing" + number).innerHTML = "Playing...";
+              document.getElementById("playing" + number).innerHTML = '<a onclick="pauseTrack()">Pause</a>';
           },
           onjustbeforefinish: function () {
           },
