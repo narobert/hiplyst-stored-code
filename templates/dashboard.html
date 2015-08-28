@@ -12,8 +12,8 @@
 
     <style>
     body {
-      font-size: 12px;
-      background: #f0f2f5;
+        font-size: 12px;
+        background: #f0f2f5;
     }
     table, th, td {
         border: 1px solid #959595;
@@ -23,12 +23,15 @@
         padding: 10px;
         text-align: left;
     }
+    th {
+        background-color: white;
+    }
     td a {
         color: #0088cc;
         cursor: pointer;
     }
     tr:nth-child(even) {
-        background-color: #f9f9f9;
+        background-color: #f0f2f5;
     }
     </style>
 
@@ -136,7 +139,7 @@
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
               }
-              document.getElementById("search_results").innerHTML = "<table style='width:100%'><thead><tr><th>Title</th><th>Artist</th><th>Click</th></tr></thead><tbody>" + searchResults + "</tbody></table>";
+              document.getElementById("search_results").innerHTML = "<div id='search_results_box'><table style='width:100%'><thead><tr><th>Title</th><th>Artist</th><th>Click</th></tr></thead><tbody>" + searchResults + "</tbody></table></div>";
           },
           error: function() {
               alert("Something wrong!");
