@@ -79,7 +79,7 @@
   // Method to get results from search query
   function getMusic(query, access_token) {
 
-      document.getElementById("search_results").innerHTML = "<center><div id='loading_gif'><img src='/static/images/loading.gif'></div></center>";
+      document.getElementById("search_results").innerHTML = '<center><div id="loading_gif"><img src="/static/images/loading.gif"></div></center>';
 
       $.ajax({
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
@@ -87,12 +87,12 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += "<tr><td>" + data.response[i]["title"] + "</td><td>" + data.response[i]["artist"] + "</td><td><a id="'playing' + i + '" onclick=playTrack('" + data.response[i]["url"] + "', "' + i + "')>Play</a></td></tr>";
+                  searchResults += '<tr><td>' + data.response[i]["title"] + '</td><td>' + data.response[i]["artist"] + '</td><td><a id="playing' + i + '" onclick="playTrack(' + data.response[i]["url"] + ', ' + i + ')">Play</a></td></tr>';
               }
               if (searchResults == "") {
-                  searchResults = "We could not find any matching songs, artists, or albums :(";
+                  searchResults = 'We could not find any matching songs, artists, or albums :(';
               }
-              document.getElementById("search_results").innerHTML = "<table style='width:100%'><thead><tr><th>Title</th><th>Artist</th><th>Listen</th></tr></thead><tbody>" + searchResults + "</tbody></table>";
+              document.getElementById("search_results").innerHTML = '<table style="width:100%"><thead><tr><th>Title</th><th>Artist</th><th>Listen</th></tr></thead><tbody>' + searchResults + '</tbody></table>';
           },
           error: function() {
               alert("Something wrong!");
@@ -118,7 +118,7 @@
           whileloading: function () {
           },
           whileplaying: function () {
-              document.getElementById("playing" + number).innerHTML = "Playing...";
+              document.getElementById("playing" + number).innerHTML = 'Playing...';
           },
           onjustbeforefinish: function () {
           },
