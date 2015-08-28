@@ -7,9 +7,6 @@
   <link type="text/css" href="/static/css/style.css" rel="stylesheet" />
 
   <style>
-  body {
-    padding: 20px;
-  }
   table, th, td {
     border: 1px solid #959595;
     border-collapse: collapse;
@@ -33,18 +30,22 @@
 </head>
 <body>
 
-  <p>Hello world.</p>
+  <div class="navbar"></div>
 
-  <!-- Hiplyst abroad version 2.0 -->
-  <!-- <div id="login_button" onclick="VK.Auth.login(authInfo);"></div> -->
+  <div class="container">
 
-  <div class="search_form_box">
-    <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
-    <button type="button" id="search_button" onclick="load();">Send</button>
+    <!-- Hiplyst abroad version 2.0 -->
+    <!-- <div id="login_button" onclick="VK.Auth.login(authInfo);"></div> -->
+
+    <div class="search_form_box">
+      <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
+      <button type="button" id="search_button" onclick="load();">Send</button>
+    </div>
+
+    <!-- Query search results -->
+    <div id="search_results">
+
   </div>
-
-  <!-- Query search results -->
-  <div id="search_results">
 
   <!-- Enables vk search and soundmanager -->
   <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
