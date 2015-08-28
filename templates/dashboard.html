@@ -60,10 +60,12 @@
               <li><a href="#">One more separated link</a></li>
             </ul>
           </li>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
         </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" id="search_input" placeholder="Search for songs, artists, or albums">
+          </div>
+        </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
@@ -100,7 +102,8 @@
 
   <!-- Enables bootstrap js -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+  <script type="text/javascript" src="/static/js/collapse.js"></script>
+  <script type="text/javascript" src="/static/js/dropdown.js"></script>
 
   <!-- Enables vk search and soundmanager -->
   <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
