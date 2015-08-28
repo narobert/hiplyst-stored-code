@@ -42,18 +42,6 @@
     <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
     <button type="button" id="search_button" onclick="load();">Send</button>
   </div>
-  <table id="search_results_box">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Artist</th>
-        <th>Play</th>
-      </tr>
-    </thead>
-    <tbody>
-      <div id="search_results"></div>
-    </tbody>
-  </table>
 
   <!-- Enables vk search and soundmanager -->
   <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
@@ -101,8 +89,7 @@
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums :(";
               }
-              document.getElementById("search_results").innerHTML = searchResults;
-              document.getElementById("search_results_box").style.display = "block";
+              document.getElementById("search_results").innerHTML = "<table style='width:100%'><thead><tr><th>Title</th><th>Artist</th><th>Play</th></tr></thead><tbody>" + searchResults + "</tbody></table>";
           },
           error: function() {
               alert("Something wrong!");
