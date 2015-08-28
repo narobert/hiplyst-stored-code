@@ -31,6 +31,7 @@
 </head>
 <body>
 
+  <!-- Collapse navbar with search and dropdown -->
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -40,10 +41,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="navbar-brand navbar-brand-centered">Brand</div>
+        <div class="navbar-brand">Hiplyst</div>
       </div>
 
-      <div class="collapse navbar-collapse" id="navbar-brand-centered">
+      <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
@@ -83,13 +84,18 @@
   <!-- Hiplyst abroad version 2.0 -->
   <!-- <div id="login_button" onclick="VK.Auth.login(authInfo);"></div> -->
 
-  <div class="search_form_box">
-    <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
-    <button type="button" id="search_button" onclick="load();">Send</button>
-  </div>
+  <div class="container">
 
-  <!-- Query search results -->
-  <div id="search_results">
+    <!-- Query search input and button -->
+    <div class="search_form_box">
+      <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
+      <button type="button" id="search_button" onclick="load();">Send</button>
+    </div>
+
+    <!-- Query search results -->
+    <div id="search_results">
+
+  </div>
 
   <!-- Enables bootstrap js -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
