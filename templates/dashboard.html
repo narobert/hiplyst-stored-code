@@ -85,9 +85,9 @@
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
           dataType: "jsonp",
           success: function(data) {
-              var searchResults = '';
+              var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += '<tr><td>' + data.response[i]['title'] + '</td><td>' + data.response[i]['artist'] + '</td><td><a id="playing" onclick="playTrack('2', '2')">Play</a></td></tr>';
+                  searchResults += "<tr><td>" + data.response[i]["title"] + "</td><td>" + data.response[i]["artist"] + "</td><td><a id='playing" + i + "' onclick=playTrack('2, 2')>Play</a></td></tr>";
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
