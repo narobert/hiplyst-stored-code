@@ -92,7 +92,7 @@
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums :(";
               }
-              document.getElementById("search_results").innerHTML = "<table style='width:100%'><thead><tr><th>Title</th><th>Artist</th><th>Click to play</th></tr></thead><tbody>" + searchResults + "</tbody></table>";
+              document.getElementById("search_results").innerHTML = "<table style='width:100%'><thead><tr><th>Title</th><th>Artist</th><th>Listen</th></tr></thead><tbody>" + searchResults + "</tbody></table>";
           },
           error: function() {
               alert("Something wrong!");
@@ -114,9 +114,9 @@
           onconnect: function () {
           },
           onload: function() {
+              document.getElementById("playing").innerHTML = "Loading...";
           },
           whileloading: function () {
-              document.getElementById("playing").innerHTML = "Loading...";
           },
           whileplaying: function () {
               document.getElementById("playing").innerHTML = "Playing";
