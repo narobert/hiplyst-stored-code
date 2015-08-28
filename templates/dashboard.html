@@ -151,7 +151,6 @@
               alert("Something wrong!");
           }
       });
-      return true;
 
   };
 
@@ -184,6 +183,11 @@
   // Pause track
   function pauseTrack() {
       soundManager.pause("current");
+  }
+
+  // Resume track
+  function resumeTrack() {
+      soundManager.resume("current");
   }
 
   // Press enter to load search query
