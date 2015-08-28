@@ -59,7 +59,7 @@
   display: table-cell;
   vertical-align: top;
   padding-right: 15px;
-  width: 25%;
+  width: 20%;
 }
 
 /* --- search query and results --- */
@@ -99,7 +99,7 @@
 .view-right-column {
   display: table-cell;
   vertical-align: top;
-  width: 75%;
+  width: 80%;
 }
 
 /* --- flash container --- */
