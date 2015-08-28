@@ -1,20 +1,20 @@
 /* --- placeholder color --- */
 #search_input::-webkit-input-placeholder {
-  color: #d9e2ec;
+  color: #9cb2cd;
 }
 
 #search_input:-moz-placeholder {
-  color: #d9e2ec;
+  color: #9cb2cd;
   opacity: 1;
 }
 
 #search_input::-moz-placeholder {
-  color: #d9e2ec;
+  color: #9cb2cd;
   opacity: 1;
 }
 
 #search_input:-ms-input-placeholder {
-  color: #d9e2ec;
+  color: #9cb2cd;
 }
 
 /* --- override bootstrap --- */
