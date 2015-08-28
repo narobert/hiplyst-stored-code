@@ -177,12 +177,19 @@
           onload: function() {
           },
           onplay: function() {
+              console.log("play");
               document.getElementById("playing" + number).innerHTML = 'Pause';
               document.getElementById("playing" + number).onclick = pauseTrack;
           },
           onpause: function() {
-              document.getElementById("playing" + number).innerHTML = 'Play';
+              console.log("pause");
+              document.getElementById("playing" + number).innerHTML = 'Resume';
               document.getElementById("playing" + number).onclick = resumeTrack;
+          },
+          onresume: function() {
+              console.log("resume");
+              document.getElementById("playing" + number).innerHTML = 'Pause';
+              document.getElementById("playing" + number).onclick = pauseTrack;
           },
           whileloading: function () {
           },
