@@ -1,17 +1,19 @@
 /* --- placeholder color --- */
-::-webkit-input-placeholder {
+#search_input::-webkit-input-placeholder {
   color: #d9e2ec;
 }
 
-:-moz-placeholder {
+#search_input:-moz-placeholder {
   color: #d9e2ec;
   opacity: 1;
 }
-::-moz-placeholder {
+
+#search_input::-moz-placeholder {
   color: #d9e2ec;
   opacity: 1;
 }
-:-ms-input-placeholder {
+
+#search_input:-ms-input-placeholder {
   color: #d9e2ec;
 }
 
