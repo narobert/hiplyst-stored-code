@@ -182,7 +182,9 @@
           onplay: function() {
               console.log("2");
               document.getElementById("playing" + number).innerHTML = 'Pause';
-              document.getElementById("playing" + number).onclick = pauseTrack;
+              document.getElementById("playing" + number).onclick = function() {
+                  pauseTrack();
+              };
           },
           onpause: function() {
               console.log("3");
