@@ -1,9 +1,14 @@
 <html>
 <head>
 
+  <title>Hiplyst | Shared music playlists, ranked by the community</title>
+
+  <!-- Enables css stylesheets -->
+  <link type="text/css" href="/static/css/style.css" rel="stylesheet" />
+
   <style>
   body {
-    padding-top: 60px;
+    padding: 20px;
   }
   </style>
 
@@ -15,10 +20,15 @@
 
   <p>Hello world.</p>
   <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
-  <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
-  <button type="button" id="search_button" onclick="load();">Send</button>
-  <div id="search_results"></div>
+  <div class="search_form_box">
+    <input id="search_input" placeholder="Search for songs, artists, or albums"></input>
+    <button type="button" id="search_button" onclick="load();">Send</button>
+  </div>
+  <div class="search_results_box">
+    <div id="search_results"></div>
+  </div>
 
+  <!-- Enables vk search and soundmanager -->
   <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
   <script type="text/javascript" src="http://vk.com/js/api/openapi.js"></script>
   <script type="text/javascript">
