@@ -1,3 +1,20 @@
+/* --- placeholder color --- */
+::-webkit-input-placeholder {
+  color: #d9e2ec;
+}
+
+:-moz-placeholder {
+  color: #d9e2ec;
+  opacity: 1;
+}
+::-moz-placeholder {
+  color: #d9e2ec;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #d9e2ec;
+}
+
 /* --- override bootstrap --- */
 #navbar-changes {
   border-radius: 0px;
@@ -5,7 +22,7 @@
   border-color: #567ca4;
 }
 
-#navbar-brand-left {
+#navbar-logo {
   color: white;
 }
 
@@ -31,6 +48,7 @@
   height: 28px;
   font-size: 12px;
   background: #4b6d94;
+  color: white;
 }
 
 #search_button {
@@ -38,6 +56,7 @@
 }
 
 #search_results_box {
+  margin-top: 20px;
   padding: 20px;
   background: white;
   webkit-box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
