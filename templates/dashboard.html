@@ -92,7 +92,7 @@
   <div id="search_results">
 
   <!-- Enables bootstrap js -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script type="text/javascript" src="/static/js/bootstrap.js"></script>
 
   <!-- Enables vk search and soundmanager -->
@@ -132,9 +132,7 @@
 
       $.ajax({
           url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
-          dataType: 'jsonp',
-          type: 'POST',
-          data: $(this).serialize(),
+          dataType: "jsonp",
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
