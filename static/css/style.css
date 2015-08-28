@@ -1,6 +1,7 @@
 /* --- search query and results --- */
 .search_form_box {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #search_input {
@@ -16,7 +17,6 @@
 }
 
 .search_results_box {
-  margin-top: 20px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 4px;
