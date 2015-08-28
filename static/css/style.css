@@ -21,6 +21,7 @@
 #navbar-changes {
   border: none;
   background-color: #567ca4;
+  border-radius: 0px;
   margin-bottom: 15px;
 }
 
