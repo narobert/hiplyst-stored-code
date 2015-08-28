@@ -155,6 +155,11 @@
 
   };
 
+  function playNewTrack() {
+      console.log("5");
+      soundManager.pause("current");
+  }
+
   function pauseTrack() {
       console.log("5");
       soundManager.pause("current");
@@ -193,6 +198,10 @@
               console.log("4");
               document.getElementById("playing" + number).innerHTML = 'Pause';
               document.getElementById("playing" + number).onclick = pauseTrack;
+          },
+          onstop: function() {
+              console.log("7");
+              document.getElementById("playing" + number).innerHTML = 'Play';
           },
           whileloading: function () {
           },
