@@ -135,18 +135,18 @@
       document.getElementById("search_results").innerHTML = "<center><div id='loading_gif'><img src='/static/images/loading.gif'></div></center>";
 
       $.ajax({
-          url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=10&access_token=" + access_token + "",
+          url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
           dataType: "jsonp",
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
                   console.log(data.response[i])
-                  searchResults += '<tr><td>' + data.response[i]["title"] + '</td><td>' + data.response[i]["artist"] + '</td><td>' + data.response[i]["duration"] + 's</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\')">Play</a></td></tr>';
+                  searchResults += '<tr><td>' + trimTitle(data.response[i]["title"]) + '</td><td>' + data.response[i]["artist"] + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\')">Play</a></td></tr>';
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
               }
-              document.getElementById("search_results").innerHTML = "<div id='search_results_box'><table style='width:100%;border-style:hidden;'><thead><tr><th>TITLE</th><th>ARTIST</th><th>ClOCK</th><th>GENRE</th><th>LISTEN</th></tr></thead><tbody>" + searchResults + "</tbody></table></div>";
+              document.getElementById("search_results").innerHTML = "<div id='search_results_box'><table style='width:100%;border-style:hidden;'><thead><tr><th>TITLE</th><th>ARTIST</th><th>TIME</th><th>GENRE</th><th>LISTEN</th></tr></thead><tbody>" + searchResults + "</tbody></table></div>";
           },
           error: function() {
               alert("Something wrong!");
@@ -156,13 +156,28 @@
 
   };
 
+  function trimTitle(str) {
+
+      if (str.length > 40) {
+          str.length = 40;
+      }
+
+      return str + "...";
+  
+  }
+
   function getDuration(number) {
+
+      var minutes = Math.floor(number / 60);
+      var seconds = number - minutes * 60;
+
+      return minutes + ":" + seconds;
   
   }
 
   function getGenre(number) {
 
-      genres = ["Rock", "Pop", "Rap/Hip-hop", "Easy listening", "Dance/House", "Instrumental", "Metal", "Dubstep", "Jazz/Blues", "Drum/Bass", "Trance", "Chanson", "Ethnic", "Acoustic/Vocal", "Reggae", "Classical", "Indie/Pop", "Other", "Speech", "Other", "Alternative", "Electro-pop/Disco"]
+      var genres = ["Rock", "Pop", "Rap/Hip-Hop", "Easy Listening", "Dance/House", "Instrumental", "Metal", "Dubstep", "Jazz/Blues", "Drum/Bass", "Trance", "Chanson", "Ethnic", "Acoustic/Vocal", "Reggae", "Classical", "Indie/Pop", "Contemporary", "Speech", "Other", "Alternative", "Electro-Pop/Disco"];
 
       if (number > 0 && number < 23) {
           return genres[number - 1];
