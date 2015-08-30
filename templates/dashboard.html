@@ -141,7 +141,7 @@
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
                   console.log(data.response[i])
-                  searchResults += '<tr><td>' + trimTitle(data.response[i]["title"]) + '</td><td>' + data.response[i]["artist"] + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\')">Play</a></td></tr>';
+                  searchResults += '<tr><td>' + trimStr(data.response[i]["title"]) + '</td><td>' + trimStr(data.response[i]["artist"]) + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\')">Play</a></td></tr>';
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
@@ -156,7 +156,7 @@
 
   };
 
-  function trimTitle(str) {
+  function trimStr(str) {
 
       if (str.length > 40) {
           str = str.substring(0, 40) + "...";
