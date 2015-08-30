@@ -135,11 +135,12 @@
       document.getElementById("search_results").innerHTML = "<center><div id='loading_gif'><img src='/static/images/loading.gif'></div></center>";
 
       $.ajax({
-          url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=200&access_token=" + access_token + "",
+          url: "https://api.vkontakte.ru/method/audio.search?q=" + query + "&count=10&access_token=" + access_token + "",
           dataType: "jsonp",
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
+                  console.log(data.response[i])
                   searchResults += '<tr><td>' + data.response[i]["title"] + '</td><td>' + data.response[i]["artist"] + '</td><td>' + data.response[i]["duration"] + 's</td><td>' + data.response[i]["genre"] + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\')">Play</a></td></tr>';
               }
               if (searchResults == "") {
