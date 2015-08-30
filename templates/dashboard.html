@@ -141,7 +141,7 @@
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
                   console.log(data.response[i])
-                  searchResults += '<tr><td>' + data.response[i]["title"] + '</td><td>' + data.response[i]["artist"] + '</td><td>' + data.response[i]["duration"] + 's</td><td>' + data.response[i]["genre"] + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\')">Play</a></td></tr>';
+                  searchResults += '<tr><td>' + data.response[i]["title"] + '</td><td>' + data.response[i]["artist"] + '</td><td>' + data.response[i]["duration"] + 's</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\')">Play</a></td></tr>';
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
@@ -155,6 +155,22 @@
       return true;
 
   };
+
+  function getDuration(number) {
+  
+  }
+
+  function getGenre(number) {
+
+      genres = ["Rock", "Pop", "Rap/Hip-hop", "Easy listening", "Dance/House", "Instrumental", "Metal", "Dubstep", "Jazz/Blues", "Drum/Bass", "Trance", "Chanson", "Ethnic", "Acoustic/Vocal", "Reggae", "Classical", "Indie/Pop", "Other", "Speech", "Other", "Alternative", "Electro-pop/Disco"]
+
+      if (number > 0 && number < 23) {
+          return genres[number - 1];
+      } else {
+          return "Other";
+      }
+
+  }
 
   function pauseTrack() {
       soundManager.pause("current");
