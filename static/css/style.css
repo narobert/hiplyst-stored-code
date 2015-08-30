@@ -1,26 +1,26 @@
 /* --- placeholder color --- */
 #search_input::-webkit-input-placeholder {
-  color: #9cb2cd;
+  color: #9CB2C1;
 }
 
 #search_input:-moz-placeholder {
-  color: #9cb2cd;
+  color: #9CB2C1;
   opacity: 1;
 }
 
 #search_input::-moz-placeholder {
-  color: #9cb2cd;
+  color: #9CB2C1;
   opacity: 1;
 }
 
 #search_input:-ms-input-placeholder {
-  color: #9cb2cd;
+  color: #9CB2C1;
 }
 
 /* --- override bootstrap --- */
 #navbar-changes {
   border: none;
-  background-color: #567ca4;
+  background-color: #567C98;
   border-radius: 0px;
   margin-bottom: 15px;
 }
@@ -52,7 +52,7 @@
 }
 
   .menu-bar p {
-    color: #41658c;
+    color: #416586;
     margin: 0;
   }
 
@@ -73,11 +73,11 @@
 #search_input {
   margin-top: 3px;
   border-radius: 12px;
-  border: 1px solid #4b6d94;
+  border: 1px solid #4B6D88;
   width: 270px;
   height: 28px;
   font-size: 12px;
-  background: #4b6d94;
+  background: #4B6D88;
   color: white;
 }
 
