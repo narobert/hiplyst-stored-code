@@ -203,6 +203,7 @@
 
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(data, number) {
+      console.log(number);
       soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
@@ -227,6 +228,7 @@
               document.getElementById("playing" + number).onclick = pauseTrack;
           },
           onstop: function() {
+              console.log(number);
               document.getElementById("playing" + number).innerHTML = 'Play';
               document.getElementById("playing" + number).onclick = function() {
                   playTrack(data, number);
