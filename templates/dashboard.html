@@ -229,9 +229,9 @@
           onstop: function() {
               if (document.getElementById("playing" + number) !== null) {
                   document.getElementById("playing" + number).innerHTML = 'Play';
-              }
-              document.getElementById("playing" + number).onclick = function() {
-                  playTrack(data, number);
+                  document.getElementById("playing" + number).onclick = function() {
+                      playTrack(data, number);
+                  }
               }
           },
           whileloading: function () {
