@@ -159,10 +159,10 @@
   function trimTitle(str) {
 
       if (str.length > 40) {
-          str.length = 40;
+          str = str.substring(0, 40) + "...";
       }
 
-      return str + "...";
+      return str;
   
   }
 
@@ -171,7 +171,11 @@
       var minutes = Math.floor(number / 60);
       var seconds = number - minutes * 60;
 
-      return minutes + ":" + seconds;
+      if (seconds < 10) {
+          return minutes + ":0" + seconds;
+      } else {
+          return minutes + ":" + seconds;
+      }
   
   }
 
