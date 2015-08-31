@@ -154,7 +154,7 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += '<tr><td>' + trimStr(data.response[i]["title"]) + '</td><td>' + trimStr(data.response[i]["artist"]) + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\', \'' + data + '\', \'' + i + '\')">Play</a></td></tr>';
+                  searchResults += '<tr><td>' + trimStr(data.response[i]["title"]) + '</td><td>' + trimStr(data.response[i]["artist"]) + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\', \'' + data.response[i]["title"] + '\', \'' + data.response[i]["artist"] + '\', \'' + data.response[i]["duration"] + '\', \'' + data.response[i]["genre"] + '\')">Play</a></td></tr>';
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
@@ -213,11 +213,11 @@
   }
 
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
-  function playTrack(url, aid, dataset, number) {
+  function playTrack(url, aid, title, artist, duration, genre) {
       document.getElementById("player").style.height = "89px";
       document.getElementById("player_info").style.height = "69px";
       document.getElementById("progress_slider_box").style.height = "69px";
-      document.getElementById("progress_slider").setAttribute("aria-valuemax", dataset.response[number]["duration"]);
+      document.getElementById("progress_slider").setAttribute("aria-valuemax", duration);
       soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
@@ -226,8 +226,8 @@
           autoPlay: true,
           volume: 100,
           onconnect: function() {
-              document.getElementById("title").innerHTML = dataset.response[number]["title"];
-              document.getElementById("artist").innerHTML = dataset.response[number]["artist"];
+              document.getElementById("title").innerHTML = title;
+              document.getElementById("artist").innerHTML = artist;
           },
           onload: function() {
           },
@@ -247,14 +247,14 @@
               if (document.getElementById("playing" + aid) !== null) {
                   document.getElementById("playing" + aid).innerHTML = 'Play';
                   document.getElementById("playing" + aid).onclick = function() {
-                      playTrack(url, aid, dataset, number);
+                      playTrack(url, aid, title, artist, duration, genre);
                   }
               }
           },
           whileloading: function() {
           },
           whileplaying: function() {
-              document.getElementById("progress_slider").style.width = ((this.position)/(dataset.response[number]["duration"]*1000))*100 + "%";
+              document.getElementById("progress_slider").style.width = ((this.position)/(duration*1000))*100 + "%";
           },
           onjustbeforefinish: function() {
           },
