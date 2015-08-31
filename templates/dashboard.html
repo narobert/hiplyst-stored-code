@@ -253,7 +253,7 @@
           whileloading: function () {
           },
           whileplaying: function () {
-              console.log(this.position);
+              document.getElementById("slider").style.width = (this.position/1000)/duration + "%";
           },
           onjustbeforefinish: function () {
           },
