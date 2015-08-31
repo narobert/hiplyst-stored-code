@@ -226,7 +226,7 @@
   function playTrack(url, aid, title, artist, duration, genre) {
       updatePlayer(title, artist, duration, genre);
       document.getElementById("player").style.height = "100px";
-      document.getElementById("slider").attr("aria-valuemax") = duration;
+      document.getElementById("slider").setAttribute("aria-valuemax", duration);
       soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
