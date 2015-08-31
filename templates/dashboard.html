@@ -100,7 +100,7 @@
 
   <div id="player">
     <center>
-      <div class="progress" id="progress_slider_box">
+      <div class="progress" id="progress_bar_info">
         <div class="progress-bar progress-bar-info progress-bar-striped" id="progress_slider" role="progressbar" aria-valuemin="0" style="width:0%">
           <div class="title" id="title"></div>
           <div class="artist" id="artist"></div>
@@ -214,7 +214,7 @@
 
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(url, aid, title, artist, duration, genre) {
-      document.getElementById("player").style.height = "100px";
+      document.getElementById("player").style.height = "80px";
       document.getElementById("progress_slider").setAttribute("aria-valuemax", duration);
       soundManager.destroySound("current");
       var current = soundManager.createSound({

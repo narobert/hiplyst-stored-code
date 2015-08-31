@@ -120,27 +120,25 @@
   transition: all 0.5s ease;
 }
 
-.player_info {
-  background: #4b6d94;
+#progress_bar_info {
+  height: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   position: fixed;
-  height: 80px;
   left: 200px;
   right: 200px;
-  border-radius: 4px;
-  margin-top: 10px;
-  border: 1px solid #4b6d94;
+  background-color: #41658c;
 }
 
 .title {
   font-size: 13px;
   margin-top: 10px;
-  margin-bottom: 5px;
   color: white;
   font-weight: bold;
 }
 
 .artist {
-  color: #9cb2cd;
+  color: #41658c;
 }
 
 /* --- flash container --- */
