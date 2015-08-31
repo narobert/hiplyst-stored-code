@@ -145,7 +145,7 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += '<tr><td>' + trimStr(data.response[i]["title"]) + '</td><td>' + trimStr(data.response[i]["artist"]) + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i] + '\')">Play</a></td></tr>';
+                  searchResults += '<tr><td>' + trimStr(data.response[i]["title"]) + '</td><td>' + trimStr(data.response[i]["artist"]) + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\', \'' + data.response[i]["title"] + '\', \'' + data.response[i]["artist"] + '\', \'' + data.response[i]["duration"] + '\', \'' + data.response[i]["genre"] + '\')">Play</a></td></tr>';
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
@@ -204,12 +204,13 @@
   }
 
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
-  function playTrack(data) {
+  function playTrack(url, aid, title, artist, duration, genre) {
+      console.log(url + "," + aid + "," + title + "," + artist + "," + duration + "," + genre);
       document.getElementById("player").style.height = "90px";
       soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
-          url: data["url"],
+          url: url,
           autoLoad: true,
           autoPlay: true,
           volume: 100,
@@ -218,22 +219,22 @@
           onload: function() {
           },
           onplay: function() {
-              document.getElementById("playing" + data["aid"]).innerHTML = 'Pause';
-              document.getElementById("playing" + data["aid"]).onclick = pauseTrack;
+              document.getElementById("playing" + aid).innerHTML = 'Pause';
+              document.getElementById("playing" + aid).onclick = pauseTrack;
           },
           onpause: function() {
-              document.getElementById("playing" + data["aid"]).innerHTML = 'Play';
-              document.getElementById("playing" + data["aid"]).onclick = resumeTrack;
+              document.getElementById("playing" + aid).innerHTML = 'Play';
+              document.getElementById("playing" + aid).onclick = resumeTrack;
           },
           onresume: function() {
-              document.getElementById("playing" + data["aid"]).innerHTML = 'Pause';
-              document.getElementById("playing" + data["aid"]).onclick = pauseTrack;
+              document.getElementById("playing" + aid).innerHTML = 'Pause';
+              document.getElementById("playing" + aid).onclick = pauseTrack;
           },
           onstop: function() {
-              if (document.getElementById("playing" + data["aid"]) !== null) {
-                  document.getElementById("playing" + data["aid"]).innerHTML = 'Play';
-                  document.getElementById("playing" + data["aid"]).onclick = function() {
-                      playTrack(data);
+              if (document.getElementById("playing" + aid) !== null) {
+                  document.getElementById("playing" + aid).innerHTML = 'Play';
+                  document.getElementById("playing" + aid).onclick = function() {
+                      playTrack(url, aid);
                   }
               }
           },
