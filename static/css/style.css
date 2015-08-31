@@ -126,6 +126,11 @@
 
 .play_button {
   padding-left: 10px;
+  margin-top: 21px;
+}
+
+.pause_button {
+  padding-left: 10px;
   margin-top: 29px;
 }
 
