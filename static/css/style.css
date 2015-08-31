@@ -155,13 +155,12 @@
 }
 
 .title {
-  font-size: 13px;
-  margin-top: 10px;
+  font-size: 12px;
+  margin-top: 12px;
   color: white;
   display: inline-block;
   padding-left: 20px;
   position: relative;
-  font-weight: bold;
   z-index: 1000;
 }
 
