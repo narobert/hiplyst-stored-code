@@ -100,9 +100,9 @@
   </div>
 
   <div id="player">
-    <img class="previous_button" src="/static/images/previous.png">
-    <img class="play_button" src="/static/images/play.png">
-    <img class="next_button" src="/static/images/next.png">
+    <img class="previous_button" id="previous" src="/static/images/previous.png">
+    <img class="play_button" id="play" src="/static/images/play.png">
+    <img class="next_button" id="next" src="/static/images/next.png">
     <div class="player_info" id="player_info">
       <div class="title" id="title"></div>
       <div class="artist" id="artist"></div>
@@ -229,6 +229,7 @@
           autoPlay: true,
           volume: 100,
           onconnect: function() {
+              document.getElementById("progress_slider").style.width = "0%";
               document.getElementById("title").innerHTML = title;
               document.getElementById("artist").innerHTML = artist;
           },
@@ -237,16 +238,23 @@
           onplay: function() {
               document.getElementById("playing" + aid).innerHTML = 'Pause';
               document.getElementById("playing" + aid).onclick = pauseTrack;
+              document.getElementById("play").setAttribute("src", "/static/images/pause.png");
+              document.getElementById("play").onclick = pauseTrack;
           },
           onpause: function() {
               document.getElementById("playing" + aid).innerHTML = 'Play';
               document.getElementById("playing" + aid).onclick = resumeTrack;
+              document.getElementById("play").setAttribute("src", "/static/images/play.png");
+              document.getElementById("play").onclick = resumeTrack;
           },
           onresume: function() {
               document.getElementById("playing" + aid).innerHTML = 'Pause';
               document.getElementById("playing" + aid).onclick = pauseTrack;
+              document.getElementById("play").setAttribute("src", "/static/images/pause.png");
+              document.getElementById("play").onclick = pauseTrack;
           },
           onstop: function() {
+              document.getElementById("progress_slider").style.width = "0%";
               if (document.getElementById("playing" + aid) !== null) {
                   document.getElementById("playing" + aid).innerHTML = 'Play';
                   document.getElementById("playing" + aid).onclick = function() {
@@ -262,7 +270,7 @@
           onjustbeforefinish: function() {
           },
           onfinish: function() {
-              console.log("finished playing");
+              document.getElementById("progress_slider").style.width = "0%";
           }
       });
   }
