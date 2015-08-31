@@ -1,20 +1,20 @@
 /* --- placeholder color --- */
 #search_input::-webkit-input-placeholder {
-  color: #9cb2cd;
+  color: #a9bcd4;
 }
 
 #search_input:-moz-placeholder {
-  color: #9cb2cd;
+  color: #a9bcd4;
   opacity: 1;
 }
 
 #search_input::-moz-placeholder {
-  color: #9cb2cd;
+  color: #a9bcd4;
   opacity: 1;
 }
 
 #search_input:-ms-input-placeholder {
-  color: #9cb2cd;
+  color: #a9bcd4;
 }
 
 /* --- override bootstrap --- */
@@ -154,6 +154,10 @@
   z-index: 500;
 }
 
+#progress-slider {
+  background-color: #7594b9;
+}
+
 .title {
   font-size: 13px;
   margin-top: 13px;
@@ -167,7 +171,7 @@
 
 .artist {
   padding-left: 20px;
-  color: white;
+  color: #a9bcd4;
   position: relative;
   z-index: 1000;
 }
