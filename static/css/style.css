@@ -120,14 +120,24 @@
   transition: all 0.5s ease;
 }
 
-#progress_bar_info {
-  height: 60px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+.player_info {
+  background: #4b6d94;
   position: fixed;
+  height: 80px;
   left: 200px;
   right: 200px;
-  background-color: #41658c;
+  bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #4b6d94;
+}
+
+.progress_slider_box {
+  background-color: #4b6d94;
+  position: fixed;
+  height: 20px;
+  left: 200px;
+  right: 200px;
+  bottom: 10px;
 }
 
 .title {
@@ -138,7 +148,7 @@
 }
 
 .artist {
-  color: #41658c;
+  color: #9cb2cd;
 }
 
 /* --- flash container --- */
