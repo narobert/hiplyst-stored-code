@@ -225,7 +225,7 @@
           autoLoad: true,
           autoPlay: true,
           volume: 100,
-          onconnect: function () {
+          onconnect: function() {
               document.getElementById("title").innerHTML = title;
               document.getElementById("artist").innerHTML = artist;
           },
@@ -251,14 +251,14 @@
                   }
               }
           },
-          whileloading: function () {
+          whileloading: function() {
           },
-          whileplaying: function () {
+          whileplaying: function() {
               document.getElementById("progress_slider").style.width = ((this.position)/(duration*1000))*100 + "%";
           },
-          onjustbeforefinish: function () {
+          onjustbeforefinish: function() {
           },
-          onfinish: function () {
+          onfinish: function() {
               console.log("finished playing");
           }
       });
