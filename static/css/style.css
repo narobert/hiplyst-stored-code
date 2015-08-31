@@ -110,7 +110,7 @@
   bottom: 0;
   right: 0;
   height: 0px;
-  background: white;
+  background: #567ca4;
   webkit-box-shadow: 0 -1px 2px rgba(6, 33, 63, 0.13);
   -moz-box-shadow: 0 -1px 2px rgba(6, 33, 63, 0.13);
   box-shadow: 0 -1px 2px rgba(6, 33, 63, 0.13);
@@ -123,7 +123,7 @@
 .player_info {
   background: #4b6d94;
   position: fixed;
-  height: 70px;
+  height: 80px;
   left: 200px;
   right: 200px;
   border-radius: 4px;
@@ -133,10 +133,14 @@
 
 .title {
   font-size: 13px;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 7px;
-  color: #41658c;
+  color: white;
   font-weight: bold;
+}
+
+.artist {
+  color: #9cb2cd;
 }
 
 /* --- flash container --- */

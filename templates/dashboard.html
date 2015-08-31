@@ -218,7 +218,7 @@
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(url, aid, title, artist, duration, genre) {
       updatePlayer(title, artist, duration, genre);
-      document.getElementById("player").style.height = "90px";
+      document.getElementById("player").style.height = "100px";
       soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
