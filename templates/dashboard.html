@@ -205,15 +205,6 @@
 
   }
 
-  function updatePlayer(title, artist, duration, genre) {
-      document.getElementById("title").innerHTML = title;
-      document.getElementById("artist").innerHTML = artist;
-
-      for (i = 0; i < duration; i++) {
-          document.getElementById("slider").style.width = i/duration + "%";
-      }
-  }
-
   function pauseTrack() {
       soundManager.pause("current");
   }
@@ -224,7 +215,6 @@
 
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(url, aid, title, artist, duration, genre) {
-      updatePlayer(title, artist, duration, genre);
       document.getElementById("player").style.height = "100px";
       document.getElementById("slider").setAttribute("aria-valuemax", duration);
       soundManager.destroySound("current");
@@ -235,6 +225,8 @@
           autoPlay: true,
           volume: 100,
           onconnect: function () {
+              document.getElementById("title").innerHTML = title;
+              document.getElementById("artist").innerHTML = artist;
           },
           onload: function() {
           },
@@ -261,6 +253,7 @@
           whileloading: function () {
           },
           whileplaying: function () {
+              console.log(this.position);
           },
           onjustbeforefinish: function () {
           },
