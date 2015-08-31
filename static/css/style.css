@@ -155,8 +155,9 @@
 }
 
 .title {
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 10px;
+  margin-bottom: 5px;
   color: white;
   padding-left: 20px;
   position: relative;
