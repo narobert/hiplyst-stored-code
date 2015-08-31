@@ -119,6 +119,18 @@
   transition: all 0.5s ease;
 }
 
+.previous_button {
+  padding-left: 40px;
+}
+
+.play_button {
+  padding-left: 10px;
+}
+
+.next_button {
+  padding-left: 10px;
+}
+
 #player_info {
   background: #4b6d94;
   position: fixed;
@@ -163,8 +175,8 @@
 
 .title {
   font-size: 13px;
-  margin-top: 13px;
-  margin-bottom: 8px;
+  margin-top: 12px;
+  margin-bottom: 9px;
   color: white;
   padding-left: 20px;
   position: relative;
