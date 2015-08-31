@@ -103,6 +103,9 @@
       <div class="player_info" id="player_info">
         <div class="title" id="title"></div>
         <div class="artist" id="artist"></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-info progress-bar-striped" id="slider" role="progressbar" aria-valuenow="0" aria-valuemin="0" style="width:0%"></div>
+        </div>
       </div>
     </center>
   </div>
@@ -205,6 +208,10 @@
   function updatePlayer(title, artist, duration, genre) {
       document.getElementById("title").innerHTML = title;
       document.getElementById("artist").innerHTML = artist;
+
+      for (i = 0; i < duration; i++) {
+          document.getElementById("slider").style.width = i/duration + "%";
+      }
   }
 
   function pauseTrack() {
@@ -219,6 +226,7 @@
   function playTrack(url, aid, title, artist, duration, genre) {
       updatePlayer(title, artist, duration, genre);
       document.getElementById("player").style.height = "100px";
+      document.getElementById("slider").attr("aria-valuemax") = duration;
       soundManager.destroySound("current");
       var current = soundManager.createSound({
           id: "current",
