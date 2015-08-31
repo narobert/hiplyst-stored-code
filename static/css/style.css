@@ -155,18 +155,17 @@
 }
 
 .title {
-  font-size: 12px;
-  margin-top: 12px;
+  font-size: 14px;
+  margin-top: 10px;
   color: white;
-  display: inline-block;
   padding-left: 20px;
   position: relative;
+  font-weight: bold;
   z-index: 1000;
 }
 
 .artist {
-  padding-left: 10px;
-  display: inline-block;
+  padding-left: 20px;
   color: white;
   position: relative;
   z-index: 1000;
