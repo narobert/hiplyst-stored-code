@@ -255,10 +255,6 @@
           },
           onstop: function() {
               document.getElementById("progress_slider").style.width = "0%";
-              document.getElementById("play").setAttribute("src", "/static/images/play.png");
-              document.getElementById("play").onclick = function() {
-                  playTrack(url, aid, title, artist, duration, genre);
-              }
               if (document.getElementById("playing" + aid) !== null) {
                   document.getElementById("playing" + aid).innerHTML = 'Play';
                   document.getElementById("playing" + aid).onclick = function() {
