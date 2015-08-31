@@ -134,7 +134,7 @@
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-
+  z-index: 500;
 }
 
 #progress_slider_box {
@@ -146,11 +146,12 @@
   bottom: 10px;
   box-shadow: none;
   background-color: #4b6d94;
-  border-radius: 0px 0px 4px 4px;
+  border-radius: 4px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  z-index: 500;
 }
 
 .title {
@@ -159,6 +160,7 @@
   color: white;
   display: inline-block;
   padding-left: 20px;
+  position: relative;
   z-index: 1000;
 }
 
@@ -166,6 +168,7 @@
   padding-left: 10px;
   display: inline-block;
   color: #9cb2cd;
+  position: relative;
   z-index: 1000;
 }
 

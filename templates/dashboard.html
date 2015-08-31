@@ -214,9 +214,9 @@
 
   // Optimize sound manager (add debugMode = true to hiplyst_7.0)
   function playTrack(url, aid, title, artist, duration, genre) {
-      document.getElementById("player").style.height = "65px";
-      document.getElementById("player_info").style.height = "45px";
-      document.getElementById("progress_slider_box").style.height = "45px";
+      document.getElementById("player").style.height = "50px";
+      document.getElementById("player_info").style.height = "30px";
+      document.getElementById("progress_slider_box").style.height = "30px";
       document.getElementById("progress_slider").setAttribute("aria-valuemax", duration);
       soundManager.destroySound("current");
       var current = soundManager.createSound({
