@@ -216,7 +216,7 @@
   function playTrack(url, aid, title, artist, duration, genre) {
       document.getElementById("player").style.height = "65px";
       document.getElementById("player_info").style.height = "45px";
-      document.getElementById("progress_slider_box").style.height = "10px";
+      document.getElementById("progress_slider_box").style.height = "45px";
       document.getElementById("progress_slider").setAttribute("aria-valuemax", duration);
       soundManager.destroySound("current");
       var current = soundManager.createSound({
