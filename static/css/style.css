@@ -121,17 +121,17 @@
 
 .back_arrow {
   padding-top: 32.5px;
-  padding-left: 66px;
+  padding-left: 40px;
 }
 
 .play_arrow {
   padding-top: 28.5px;
-  padding-left: 66px;
+  padding-left: 10px;
 }
 
 .forward_arrow {
   padding-top: 32.5px;
-  padding-left: 66px;
+  padding-left: 10px;
   -ms-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
