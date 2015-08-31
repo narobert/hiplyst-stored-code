@@ -110,6 +110,7 @@
   bottom: 0;
   right: 0;
   height: 0px;
+  padding: 15px;
   background: white;
   webkit-box-shadow: 0 -1px 2px rgba(6, 33, 63, 0.13);
   -moz-box-shadow: 0 -1px 2px rgba(6, 33, 63, 0.13);
@@ -118,6 +119,19 @@
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.player {
+  width: 100%;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 13px;
+  margin-bottom: 7px;
+  color: #41658c;
+  font-weight: bold;
 }
 
 /* --- flash container --- */
