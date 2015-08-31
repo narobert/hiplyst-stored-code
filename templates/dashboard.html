@@ -101,7 +101,7 @@
 
   <div id="player">
     <img class="previous_button" id="previous" src="/static/images/previous.png">
-    <img class="play_button" id="play" src="/static/images/play.png">
+    <img class="play_pause_button" id="play" src="/static/images/play.png">
     <img class="next_button" id="next" src="/static/images/next.png">
     <div class="player_info" id="player_info">
       <div class="title" id="title"></div>
@@ -239,21 +239,18 @@
               document.getElementById("playing" + aid).innerHTML = 'Pause';
               document.getElementById("playing" + aid).onclick = pauseTrack;
               document.getElementById("play").setAttribute("src", "/static/images/pause.png");
-              document.getElementById("play").setAttribute("class", "pause_button");
               document.getElementById("play").onclick = pauseTrack;
           },
           onpause: function() {
               document.getElementById("playing" + aid).innerHTML = 'Play';
               document.getElementById("playing" + aid).onclick = resumeTrack;
               document.getElementById("play").setAttribute("src", "/static/images/play.png");
-              document.getElementById("play").setAttribute("class", "play_button");
               document.getElementById("play").onclick = resumeTrack;
           },
           onresume: function() {
               document.getElementById("playing" + aid).innerHTML = 'Pause';
               document.getElementById("playing" + aid).onclick = pauseTrack;
               document.getElementById("play").setAttribute("src", "/static/images/pause.png");
-              document.getElementById("play").setAttribute("class", "pause_button");
               document.getElementById("play").onclick = pauseTrack;
           },
           onstop: function() {
@@ -275,7 +272,6 @@
           onfinish: function() {
               document.getElementById("progress_slider").style.width = "0%";
               document.getElementById("play").setAttribute("src", "/static/images/play.png");
-              document.getElementById("play").setAttribute("class", "play_button");
               document.getElementById("play").onclick = function() {
                   playTrack(url, aid, title, artist, duration, genre);
               }

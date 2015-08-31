@@ -120,22 +120,17 @@
 }
 
 .previous_button {
-  padding-left: 40px;
+  padding-left: 42px;
   margin-top: 33px;
 }
 
-.play_button {
-  padding-left: 15px;
-  margin-top: 29px;
-}
-
-.pause_button {
-  padding-left: 10px;
+.play_pause_button {
+  padding-left: 12px;
   margin-top: 29px;
 }
 
 .next_button {
-  padding-left: 10px;
+  padding-left: 12px;
   margin-top: 33px;
 }
 
