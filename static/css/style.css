@@ -163,6 +163,7 @@
 
 .artist {
   padding-left: 10px;
+  display: inline-block;
   color: #9cb2cd;
 }
 
