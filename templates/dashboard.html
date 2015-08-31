@@ -89,7 +89,7 @@
   <div class="container">
     <div class="view-columns">
       <div class="view-left-column">
-        <div class="menu-bar">
+        <div class="menu-bar" id="destination">
           <p>New playlist</p>
         </div>
       </div>
@@ -112,6 +112,9 @@
   <!-- Enables bootstrap js -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+
+  <!-- Enables drag and drop -->
+  <script type="text/javascript" src="/static/js/drag.js"></script>
 
   <!-- Enables vk search and soundmanager -->
   <script type="text/javascript" src="/static/js/soundmanager2.js"></script>
@@ -143,6 +146,10 @@
       }
   }
 
+  $(function() {
+      $('tr[id^="drag"]').dragdrop();
+  });
+
   // Method to get results from search query
   function getMusic(query, access_token) {
 
@@ -154,7 +161,7 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += '<tr><td>' + trimStr(data.response[i]["title"]) + '</td><td>' + trimStr(data.response[i]["artist"]) + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\', \'' + data.response[i]["title"] + '\', \'' + data.response[i]["artist"] + '\', \'' + data.response[i]["duration"] + '\', \'' + data.response[i]["genre"] + '\')">Play</a></td></tr>';
+                  searchResults += '<tr id="drag' + data.response[i]["aid"] + '"><td>' + trimStr(data.response[i]["title"]) + '</td><td>' + trimStr(data.response[i]["artist"]) + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\', \'' + data.response[i]["title"] + '\', \'' + data.response[i]["artist"] + '\', \'' + data.response[i]["duration"] + '\', \'' + data.response[i]["genre"] + '\')">Play</a></td></tr>';
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
