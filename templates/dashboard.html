@@ -57,8 +57,7 @@
 
       <div class="collapse navbar-collapse" id="navbar-brand-left">
         <ul class="nav navbar-nav">
-          <li><a href="#" id="navbar-list-items">Link</a></li>
-          <li><a href="#" id="navbar-list-items">Link</a></li>
+          <li><a href="#" id="navbar-list-items">just music.</a></li>
         </ul>
         <form class="navbar-form navbar-right" onsubmit="return false;" role="search">
           <div class="form-group">
@@ -90,7 +89,17 @@
     <div class="view-columns">
       <div class="view-left-column">
         <div class="menu-bar">
-          <p>New playlist</p>
+          <div class="separator"></div>
+          <a id="dashboard">Home</a>
+          <a id="play_queue">Play Queue</a>
+          <div id="new_playlist_button">
+            <a onclick="newPlaylist()">New Playlist</a>
+            <form method="POST" action="/new_playlist/" class="hidden_form" id="new_playlist_form">
+              <input id="new_playlist_input" onclick="event.stopPropagation();" type="text" name="playlist_name" maxlength="100" placeholder="Title"></input>
+            </form>
+          </div>
+          <div id="menu_playlists"></div>
+          <div class="separator"></div>
         </div>
       </div>
       <div class="view-right-column">
@@ -129,6 +138,9 @@
   soundManager.useFlashBlock = true; // optionally, enable when you're ready to dive in
   soundManager.useHTML5Audio = true; // enable HTML5 audio support, if you're feeling adventurous.
   soundManager.useHighPerformance = true;
+
+  // Load menu playlists
+  window.onload = loadMenuPlaylists;
 
   // Initializes VK app
   VK.init({
@@ -285,8 +297,75 @@
       });
   }
 
+  // User creates a new playlist
+  function newPlaylist() {
+      event.stopPropagation();
+      var hidden_form = document.getElementById("new_playlist_form");
+
+      if (hidden_form.className == "hidden_form") {
+          hidden_form.className = "";
+          document.getElementById("new_playlist_input").focus();
+      } else {
+          hidden_form.className = "hidden_form";
+          document.getElementById("new_playlist_input").value = "";
+      }
+  }
+
+  // Hide new playlist form
+  document.addEventListener("click", function() {
+      document.getElementById("new_playlist_form").className = "hidden_form";
+      document.getElementById("new_playlist_input").value = "";
+  });
+
+  // Submit form to add playlist to database
+  $(document).on("submit", "#new_playlist_form", function(event) {
+
+      event.preventDefault();
+      $.ajax({
+          url: $('#new_playlist_form').attr('action'),
+          type: $('#new_playlist_form').attr('method'),
+          data: $('#new_playlist_form').serialize(),
+          success: function(data) {
+              document.getElementById("new_playlist_input").value = "";
+              document.getElementById("new_playlist_form").className = "hidden_form";
+              loadMenuPlaylists();
+          },
+          error: function() {
+              alert("Something wrong!");
+          }
+      });
+      return true;
+
+  });
+
+  // Display newly created playlist and other playlists by user
+  function loadMenuPlaylists() {
+
+      $.ajax({
+          url: "/ajax/vkconfig/getMenuPlaylists",
+          type: "POST",
+          dataType: "json",
+          success: function(data) {
+              if (data["status"] == "OK") {
+                  var menu_playlists = "";
+                  for (var i = 0; i < data["menu_playlists"].length; i++) {
+                      var menu_playlist = data["menu_playlists"][i];
+                      var menu_playlist_name = menu_playlist.name;
+                      menu_playlists += "<p>" + menu_playlist_name + "</p>";
+                  }
+                  $('#menu_playlists').html(menu_playlists);
+              }
+          },
+          error: function() {
+              alert("Something wrong!");
+          }
+      });
+      return true;
+
+  }
+
   // Press enter to load search query
-  document.getElementById('search_input').onkeydown = function(event) {
+  document.getElementById("search_input").onkeydown = function(event) {
       if (event.keyCode == 13) {
           load();
       }

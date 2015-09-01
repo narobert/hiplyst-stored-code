@@ -25,6 +25,7 @@
 }
 
 #navbar-logo {
+  margin-right: -10px;
   color: white;
 }
 
@@ -43,16 +44,36 @@
 
 /* --- menu bar --- */
 .menu-bar {
-  padding: 10px 15px;
+  cursor: default;
   background: white;
   webkit-box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
   -moz-box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
   box-shadow: 0 1px 2px rgba(6, 33, 63, 0.13);
 }
 
-  .menu-bar p {
+  .menu-bar a {
+    border-top: 1px solid #eeeeee;
     color: #41658c;
-    margin: 0;
+    display: block;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .menu-bar a:hover {
+    text-decoration: none;
+  }
+
+  .menu-bar p {
+    padding-left: 40px;
+    color: #41658c;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+  }
+
+  .menu-bar p:last-child {
+    border-bottom: 1px solid #eeeeee;
   }
 
 .view-left-column {
@@ -61,6 +82,33 @@
   padding-right: 15px;
   min-width: 228px;
   width: 20%;
+}
+
+#dashboard {
+  background: #f9f9f9;
+  font-weight: bold;
+}
+
+#play_queue {
+
+}
+
+#new_playlist_button {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.hidden_form {
+  display: none;
+}
+
+.separator {
+  padding: 5px;
+}
+
+#new_playlist_input {
+  margin-bottom: 15px;
+  margin-left: 15px;
+  padding-left: 5px;
 }
 
 /* --- search query and results --- */
