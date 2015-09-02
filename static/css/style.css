@@ -72,10 +72,6 @@
     margin-bottom: 0;
   }
 
-  .menu-bar p:hover {
-    background: #f9f9f9;
-  }
-
 .view-left-column {
   display: table-cell;
   vertical-align: top;
@@ -126,6 +122,7 @@
 .menu_playlists_separator {
   padding-bottom: 10px;
   padding-top: 10px;
+  background: #f9f9f9;
 }
 
 .separator_bottom {
