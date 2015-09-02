@@ -65,15 +65,15 @@
   }
 
   .menu-bar p {
-    padding-left: 40px;
+    padding-left: 42px;
     color: #41658c;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     margin-bottom: 0;
   }
 
-  .menu-bar p:last-child {
-    border-bottom: 1px solid #eeeeee;
+  .menu-bar p:hover {
+    background: #f9f9f9;
   }
 
 .view-left-column {
@@ -86,28 +86,57 @@
 
 #dashboard {
   background: #f9f9f9;
-  font-weight: bold;
-}
-
-#play_queue {
-
 }
 
 #new_playlist_button {
   border-bottom: 1px solid #eeeeee;
 }
 
+#home {
+  margin-top: -2px;
+  margin-right: 9px;
+}
+
+#queue {
+  margin-top: -2px;
+  margin-right: 9px;
+}
+
+#new {
+  margin-top: -2px;
+  margin-right: 9px;
+}
+
 .hidden_form {
   display: none;
 }
 
-.separator {
+.hidden_text {
+  display: none;
+}
+
+#playlists_empty {
+  opacity: 0.5;
+}
+
+.separator_top {
+  padding: 5px;
+}
+
+.menu_playlists_separator {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.separator_bottom {
+  border-top: 1px solid #eeeeee;
   padding: 5px;
 }
 
 #new_playlist_input {
-  margin-bottom: 15px;
-  margin-left: 15px;
+  margin-bottom: 3px;
+  margin-left: 42px;
+  margin-top: 3px;
   padding-left: 5px;
 }
 

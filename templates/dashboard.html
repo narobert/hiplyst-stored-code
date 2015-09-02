@@ -89,17 +89,17 @@
     <div class="view-columns">
       <div class="view-left-column">
         <div class="menu-bar">
-          <div class="separator"></div>
-          <a id="dashboard">Home</a>
-          <a id="play_queue">Play Queue</a>
-          <div id="new_playlist_button">
-            <a onclick="newPlaylist()">New Playlist</a>
+          <div class="separator_top"></div>
+          <a id="dashboard"><img id="home" src="/static/images/home.png">Home</a>
+          <a id="play_queue"><img id="queue" src="/static/images/queue.png">Play Queue</a>
+          <a id="new_playlist_button" onclick="newPlaylist()"><img id="new" src="/static/images/add.png">New Playlist</a>
+          <div class='menu_playlists_separator'>
             <form method="POST" action="/new_playlist/" class="hidden_form" id="new_playlist_form">
               <input id="new_playlist_input" onclick="event.stopPropagation();" type="text" name="playlist_name" maxlength="100" placeholder="Title"></input>
             </form>
+            <div id="menu_playlists"></div>
           </div>
-          <div id="menu_playlists"></div>
-          <div class="separator"></div>
+          <div class="separator_bottom"></div>
         </div>
       </div>
       <div class="view-right-column">
@@ -301,11 +301,18 @@
   function newPlaylist() {
       event.stopPropagation();
       var hidden_form = document.getElementById("new_playlist_form");
+      var hidden_text = document.getElementById("playlists_empty");
 
       if (hidden_form.className == "hidden_form") {
+          if (hidden_text != null) {
+              hidden_text.className = "hidden_text";
+          }
           hidden_form.className = "";
           document.getElementById("new_playlist_input").focus();
       } else {
+          if (hidden_text != null) {
+              hidden_text.className = "";
+          }
           hidden_form.className = "hidden_form";
           document.getElementById("new_playlist_input").value = "";
       }
@@ -313,6 +320,10 @@
 
   // Hide new playlist form
   document.addEventListener("click", function() {
+      var hidden_text = document.getElementById("playlists_empty");
+      if (hidden_text != null) {
+          hidden_text.className = "";
+      }
       document.getElementById("new_playlist_form").className = "hidden_form";
       document.getElementById("new_playlist_input").value = "";
   });
@@ -353,7 +364,11 @@
                       var menu_playlist_name = menu_playlist.name;
                       menu_playlists += "<p>" + menu_playlist_name + "</p>";
                   }
-                  $('#menu_playlists').html(menu_playlists);
+                  if (menu_playlists == "") {
+                      $("#menu_playlists").html("<p id='playlists_empty'>No playlists yet...</p>");
+                  } else {
+                      $("#menu_playlists").html(menu_playlists);
+                  }
               }
           },
           error: function() {
