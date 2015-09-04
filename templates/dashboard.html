@@ -34,9 +34,6 @@
     tr:nth-child(odd) {
         background-color: #f9f9f9;
     }
-    tbody > tr {
-        cursor: move;
-    }
     </style>
 
 </head>
@@ -121,6 +118,9 @@
     </div>
   </div>
 
+  <!-- Enables drag and drop -->
+  <script type="text/javascript" src="/static/js/dragondrop.js"></script>
+
   <!-- Enables bootstrap js -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript" src="/static/js/bootstrap.js"></script>
@@ -169,12 +169,19 @@
           success: function(data) {
               var searchResults = "";
               for (var i = 1; i < data.response.length; i++) {
-                  searchResults += '<tr><td>' + trimStr(data.response[i]["title"]) + '</td><td>' + trimStr(data.response[i]["artist"]) + '</td><td>' + getDuration(data.response[i]["duration"]) + '</td><td>' + getGenre(data.response[i]["genre"]) + '</td><td><a id="playing' + data.response[i]["aid"] + '" onclick="playTrack(\'' + data.response[i]["url"] + '\', \'' + data.response[i]["aid"] + '\', \'' + data.response[i]["title"] + '\', \'' + data.response[i]["artist"] + '\', \'' + data.response[i]["duration"] + '\', \'' + data.response[i]["genre"] + '\')">Play</a></td></tr>';
+                  var url = data.response[i]["url"];
+                  var aid = data.response[i]["aid"];
+                  var title = data.response[i]["title"];
+                  var artist = data.response[i]["artist"];
+                  var duration = data.response[i]["duration"];
+                  var genre = data.response[i]["genre"];
+                  searchResults += '<tr draggable="true" data-all="' + url + ',' + aid + ',' + title + ',' + artist + ',' + getDuration(duration) + ',' + getGenre(genre) + '"><td>' + trimStr(title) + '</td><td>' + trimStr(artist) + '</td><td>' + getDuration(duration) + '</td><td>' + getGenre(genre) + '</td><td><a id="playing' + aid + '" onclick="playTrack(\'' + url + '\', \'' + aid + '\', \'' + title + '\', \'' + artist + '\', \'' + duration + '\', \'' + getGenre(genre) + '\')">Play</a>' + '</td></tr>';
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
               }
-              document.getElementById("search_results").innerHTML = "<div id='search_results_box'><table style='width:100%;border-style:hidden;'><thead><tr><th>TITLE</th><th>ARTIST</th><th>TIME</th><th>GENRE</th><th>LISTEN</th></tr></thead><tbody>" + searchResults + "</tbody></table></div>";
+              document.getElementById("search_results").innerHTML = "<div id='search_results_box'><table id='drag-elements'><thead><tr><th>TITLE</th><th>ARTIST</th><th>TIME</th><th>GENRE</th><th>LISTEN</th></tr></thead><tbody>" + searchResults + "</tbody></table></div>";
+              startDrag();
           },
           error: function() {
               alert("Something wrong!");
@@ -362,10 +369,10 @@
                   for (var i = 0; i < data["menu_playlists"].length; i++) {
                       var menu_playlist = data["menu_playlists"][i];
                       var menu_playlist_name = menu_playlist.name;
-                      menu_playlists += "<p>" + menu_playlist_name + "</p>";
+                      menu_playlists += "<ul id='drop-target'>" + menu_playlist_name + "</ul>";
                   }
                   if (menu_playlists == "") {
-                      $("#menu_playlists").html("<p id='playlists_empty'>No playlists yet...</p>");
+                      $("#menu_playlists").html("<ul id='playlists_empty'>No playlists yet...</ul>");
                   } else {
                       $("#menu_playlists").html(menu_playlists);
                   }

@@ -64,7 +64,7 @@
     text-decoration: none;
   }
 
-  .menu-bar p {
+  .menu-bar ul {
     padding-left: 42px;
     color: #41658c;
     padding-top: 6px;
@@ -125,6 +125,12 @@
   background: #f9f9f9;
 }
 
+.striped_menu_playlists_separator {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background: repeating-linear-gradient(45deg, white, white 10px, #f9f9f9 10px, #f9f9f9 20px) !important;
+}
+
 .separator_bottom {
   border-top: 1px solid #eeeeee;
   padding: 5px;
@@ -173,6 +179,15 @@
   display: table-cell;
   vertical-align: top;
   width: 80%;
+}
+
+#drag-elements {
+  border-style: hidden;
+  width: 100%;
+}
+
+.striped_tr {
+  background: repeating-linear-gradient(45deg, white, white 10px, #f9f9f9 10px, #f9f9f9 20px) !important;
 }
 
 /* --- player --- */
