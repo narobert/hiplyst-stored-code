@@ -5,5 +5,6 @@ urlpatterns = patterns(
     'vkconfig.views',
 
     (r'getMenuPlaylists$', 'getMenuPlaylists'),
+    (r'getPlaylistTracks$', 'getPlaylistTracks'),
 
 )

@@ -1,6 +1,6 @@
 function startDrag() {
 
-    var dropZones = document.querySelectorAll('#drop-target');
+    var dropZones = document.querySelectorAll('.drop-target');
     var dragElements = document.querySelectorAll('#drag-elements tr');
     var elementDragged = null;
 
@@ -9,16 +9,15 @@ function startDrag() {
         // Event Listener for when the drag interaction starts.
         dragElements[i].addEventListener('dragstart', function(e) {
             e.dataTransfer.effectAllowed = 'move';
-            this.className = "striped_tr";
-            document.querySelector('.menu_playlists_separator').className = "striped_menu_playlists_separator";
+            var dragImage = document.createElement("img");
+            dragImage.setAttribute("src", "/static/images/record.png");
+            e.dataTransfer.setDragImage(dragImage, 0, 0);
             e.dataTransfer.setData('text', this.getAttribute("data-all"));
             elementDragged = this;
         });
 
         // Event Listener for when the drag interaction finishes.
         dragElements[i].addEventListener('dragend', function(e) {
-            this.className = "";
-            document.querySelector('.striped_menu_playlists_separator').className = "menu_playlists_separator";
             elementDragged = null;
         });
 
@@ -30,17 +29,17 @@ function startDrag() {
         dropZones[i].addEventListener('dragover', function(e) {
             e.preventDefault();
             e.dataTransfer.dropEffect = 'move';
-            this.style.color = "#ff4000";
+            this.style.backgroundColor = "#f9f9f9";
         });
 
         // Event Listener for when the dragged element enters the drop zone.
         dropZones[i].addEventListener('dragenter', function(e) {
-            this.style.color = "#ff4000";
+            this.style.backgroundColor = "#f9f9f9";
         });
 
         // Event Listener for when the dragged element enters the drop zone.
         dropZones[i].addEventListener('dragleave', function(e) {
-            this.style.color = "#41658c";
+            this.style.backgroundColor = "white";
         });
 
         // Event Listener for when the dragged element dropped in the drop zone.
@@ -48,7 +47,7 @@ function startDrag() {
             if (e.preventDefault) e.preventDefault(); 
             if (e.stopPropagation) e.stopPropagation(); 
 
-            this.style.color = "#41658c";
+            this.style.backgroundColor = "white";
             var trackStr = e.dataTransfer.getData('text').split("^");
             document.getElementById("playlist_id").value = this.getAttribute("playlist_id");
             document.getElementById("track_url").value = trackStr[0];
@@ -63,7 +62,7 @@ function startDrag() {
                 type: $('#add_track_form').attr('method'),
                 data: $('#add_track_form').serialize(),
                 success: function(data) {
-                    // Track added successfully
+                    // Track added to playlist
                 },
                 error: function() {
                     alert("Something wrong!");

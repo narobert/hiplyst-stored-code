@@ -52,12 +52,11 @@
 }
 
   .menu-bar a {
-    border-top: 1px solid #eeeeee;
     color: #41658c;
     display: block;
     padding-left: 15px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 11px;
+    padding-top: 11px;
   }
 
   .menu-bar a:hover {
@@ -65,10 +64,10 @@
   }
 
   .menu-bar ul {
-    padding-left: 42px;
+    padding-left: 15px;
     color: #41658c;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 11px;
+    padding-bottom: 11px;
     margin-bottom: 0;
   }
 
@@ -84,8 +83,10 @@
   background: #f9f9f9;
 }
 
-#new_playlist_button {
-  border-bottom: 1px solid #eeeeee;
+#new_playlist_form {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
 }
 
 #home {
@@ -103,6 +104,16 @@
   margin-right: 9px;
 }
 
+#record {
+  margin-top: -2px;
+  margin-right: 9px;
+}
+
+#settings {
+  margin-top: -2px;
+  margin-right: 9px;
+}
+
 .hidden_form {
   display: none;
 }
@@ -113,34 +124,20 @@
 
 #playlists_empty {
   opacity: 0.5;
+  border-top: none;
 }
 
 .separator_top {
   padding: 5px;
 }
 
-.menu_playlists_separator {
-  padding-bottom: 10px;
-  padding-top: 10px;
-  background: #f9f9f9;
-}
-
-.striped_menu_playlists_separator {
-  padding-bottom: 10px;
-  padding-top: 10px;
-  background: repeating-linear-gradient(45deg, white, white 10px, #f9f9f9 10px, #f9f9f9 20px) !important;
-}
-
 .separator_bottom {
-  border-top: 1px solid #eeeeee;
   padding: 5px;
 }
 
 #new_playlist_input {
-  margin-bottom: 3px;
-  margin-left: 42px;
-  margin-top: 3px;
   padding-left: 5px;
+  margin-left: -2px;
 }
 
 /* --- search query and results --- */
@@ -193,10 +190,6 @@
 
 #add_track_form {
   padding-top: 20px;
-}
-
-.striped_tr {
-  background: repeating-linear-gradient(45deg, white, white 10px, #f9f9f9 10px, #f9f9f9 20px) !important;
 }
 
 /* --- player --- */

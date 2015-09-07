@@ -17,11 +17,10 @@
         padding-top: 65px;
     }
     table, th, td {
-        border-top: 1px solid #eeeeee;
         border-collapse: collapse;
     }
     th, td {
-        padding: 10px 15px;
+        padding: 11px 15px;
         text-align: left;
     }
     th {
@@ -90,12 +89,14 @@
           <a id="dashboard"><img id="home" src="/static/images/home.png">Home</a>
           <a id="play_queue"><img id="queue" src="/static/images/queue.png">Play Queue</a>
           <a id="new_playlist_button" onclick="newPlaylist()"><img id="new" src="/static/images/add.png">New Playlist</a>
-          <div class='menu_playlists_separator'>
+          <div class="menu_playlists_separator">
             <form method="POST" action="/new_playlist/" class="hidden_form" id="new_playlist_form">
+              <img id="record" src="/static/images/record.png">
               <input id="new_playlist_input" onclick="event.stopPropagation();" type="text" name="playlist_name" maxlength="100" placeholder="Title"></input>
             </form>
             <div id="menu_playlists"></div>
           </div>
+          <a id="settings_button"><img id="settings" src="/static/images/settings.png">Settings</a>
           <div class="separator_bottom"></div>
         </div>
       </div>
@@ -386,10 +387,10 @@
                       var menu_playlist = data["menu_playlists"][i];
                       var menu_playlist_id = menu_playlist.id;
                       var menu_playlist_name = menu_playlist.name;
-                      menu_playlists += "<ul id='drop-target' playlist_id='" + menu_playlist_id + "'>" + menu_playlist_name + "</ul>";
+                      menu_playlists += '<ul class="drop-target" id="playlist' + menu_playlist_id + '" onclick="loadPlaylistTracks(\'' + menu_playlist_id + '\')" playlist_id="' + menu_playlist_id + '"><img id="record" src="/static/images/record.png">' + menu_playlist_name + '</ul>';
                   }
                   if (menu_playlists == "") {
-                      $("#menu_playlists").html("<ul id='playlists_empty'>No playlists yet...</ul>");
+                      $("#menu_playlists").html("<ul id='playlists_empty'><img id='record' src='/static/images/record.png'>No playlists yet...</ul>");
                   } else {
                       $("#menu_playlists").html(menu_playlists);
                   }
@@ -401,7 +402,46 @@
       });
       return true;
 
-  }
+  };
+
+  // Method to get tracks from playlist
+  function loadPlaylistTracks(id) {
+
+      document.getElementById("playlist" + id).style.backgroundColor = "#f9f9f9";
+      document.getElementById("search_results").innerHTML = "<center><div id='loading_gif'><img src='/static/images/loading.gif'></div></center>";
+
+      $.ajax({
+          url: "/ajax/vkconfig/getPlaylistTracks",
+          data: ({ id: id }),
+          type: "POST",
+          dataType: "json",
+          success: function(data) {
+              if (data["status"] == "OK") {
+                  var searchResults = "";
+                  for (var i = 0; i < data["p_tracks"].length; i++) {
+                      var playlist_track = data["p_tracks"][i];
+                      var url = playlist_track.url;
+                      var aid = playlist_track.aid;
+                      var title = playlist_track.title;
+                      var artist = playlist_track.artist;
+                      var duration = playlist_track.duration;
+                      var genre = playlist_track.genre;
+                      searchResults += '<tr draggable="true" data-all="' + url + '^' + aid + '^' + title + '^' + artist + '^' + duration + '^' + getGenre(genre) + '"><td>' + trimStr(title) + '</td><td>' + trimStr(artist) + '</td><td>' + getDuration(duration) + '</td><td>' + getGenre(genre) + '</td><td><a id="playing' + aid + '" onclick="playTrack(\'' + url + '\', \'' + aid + '\', \'' + title + '\', \'' + artist + '\', \'' + duration + '\', \'' + getGenre(genre) + '\')">Play</a>' + '</td></tr>';
+                  }
+                  if (searchResults == "") {
+                      searchResults = "No songs have been added yet :(";
+                  }
+                  document.getElementById("search_results").innerHTML = "<div id='search_results_box'><table id='drag-elements'><thead><tr><th>TITLE</th><th>ARTIST</th><th>TIME</th><th>GENRE</th><th>LISTEN</th></tr></thead><tbody>" + searchResults + "</tbody></table></div>";
+                  startDrag();
+              }
+          },
+          error: function() {
+              alert("Something wrong!");
+          }
+      });
+      return true;
+
+  };
 
   // Press enter to load search query
   document.getElementById("search_input").onkeydown = function(event) {
