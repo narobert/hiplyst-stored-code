@@ -175,6 +175,11 @@
   margin-top: 60px;
 }
 
+#menu_loading_gif {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .view-right-column {
   display: table-cell;
   vertical-align: top;
@@ -184,6 +189,10 @@
 #drag-elements {
   border-style: hidden;
   width: 100%;
+}
+
+#add_track_form {
+  padding-top: 20px;
 }
 
 .striped_tr {

@@ -49,7 +49,27 @@ function startDrag() {
             if (e.stopPropagation) e.stopPropagation(); 
 
             this.style.color = "#41658c";
-            this.innerHTML = e.dataTransfer.getData('text');
+            var trackStr = e.dataTransfer.getData('text').split("^");
+            document.getElementById("playlist_id").value = this.getAttribute("playlist_id");
+            document.getElementById("track_url").value = trackStr[0];
+            document.getElementById("track_aid").value = trackStr[1];
+            document.getElementById("track_title").value = trackStr[2];
+            document.getElementById("track_artist").value = trackStr[3];
+            document.getElementById("track_duration").value = trackStr[4];
+            document.getElementById("track_genre").value = trackStr[5];
+
+            $.ajax({
+                url: $('#add_track_form').attr('action'),
+                type: $('#add_track_form').attr('method'),
+                data: $('#add_track_form').serialize(),
+                success: function(data) {
+                    // Track added successfully
+                },
+                error: function() {
+                    alert("Something wrong!");
+                }
+            });
+
         });
 
     };

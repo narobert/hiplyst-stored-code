@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 
     url(r'^$', 'vkconfig.views.dashboard', name='dashboard'),
     url(r'^new_playlist/', 'vkconfig.views.new_playlist', name='new_playlist'),
+    url(r'^add_track/', 'vkconfig.views.add_track', name='add_track'),
 
     # Everything in this site is going to be presented using only ajax
     (r'^ajax/vkconfig/', include('vkconfig.urls')),

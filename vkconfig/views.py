@@ -29,3 +29,20 @@ def getMenuPlaylists(request):
     menu_playlists = [pl.for_json() for pl in playlists]
 
     return {"status": "OK", "menu_playlists": menu_playlists}
+
+def add_track(request):
+    track_url = track_aid = track_title = track_artist = track_duration = track_genre = ''
+    if request.method == 'POST':
+        playlist_id = request.POST.get('playlist_id')
+        track_url = request.POST.get('track_url')
+        track_aid = request.POST.get('track_aid')
+        track_title = request.POST.get('track_title')
+        track_artist = request.POST.get('track_artist')
+        track_duration = request.POST.get('track_duration')
+        track_genre = request.POST.get('track_genre')
+        track = Track.objects.create(url = track_url, aid = track_aid, title = track_title, artist = track_artist, duration = track_duration, genre = track_genre)
+        playlist = Playlist.objects.get(id = playlist_id)
+        playlist.track.add(track)
+        playlist.save()
+    return HttpResponseRedirect('/')
+

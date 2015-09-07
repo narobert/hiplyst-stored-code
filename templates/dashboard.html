@@ -105,6 +105,20 @@
     </div>
   </div>
 
+  <div class="container">
+    <center>
+    <form method="POST" action="/add_track/" class="hidden_form" id="add_track_form">
+      <input id="playlist_id" type="text" name="playlist_id" maxlength="1000" placeholder="Playlist id"></input>
+      <input id="track_url" type="text" name="track_url" maxlength="1000" placeholder="Url"></input>
+      <input id="track_aid" type="text" name="track_aid" maxlength="20" placeholder="Aid"></input>
+      <input id="track_title" type="text" name="track_title" maxlength="1000" placeholder="Title"></input>
+      <input id="track_artist" type="text" name="track_artist" maxlength="1000" placeholder="Artist"></input>
+      <input id="track_duration" type="text" name="track_duration" maxlength="10" placeholder="Duration"></input>
+      <input id="track_genre" type="text" name="track_genre" maxlength="40" placeholder="Genre"></input>
+    </form>
+    </center>
+  </div>
+
   <div id="player">
     <img class="previous_button" id="previous" src="/static/images/previous.png">
     <img class="play_pause_button" id="play" src="/static/images/play.png">
@@ -175,7 +189,7 @@
                   var artist = data.response[i]["artist"];
                   var duration = data.response[i]["duration"];
                   var genre = data.response[i]["genre"];
-                  searchResults += '<tr draggable="true" data-all="' + url + ',' + aid + ',' + title + ',' + artist + ',' + getDuration(duration) + ',' + getGenre(genre) + '"><td>' + trimStr(title) + '</td><td>' + trimStr(artist) + '</td><td>' + getDuration(duration) + '</td><td>' + getGenre(genre) + '</td><td><a id="playing' + aid + '" onclick="playTrack(\'' + url + '\', \'' + aid + '\', \'' + title + '\', \'' + artist + '\', \'' + duration + '\', \'' + getGenre(genre) + '\')">Play</a>' + '</td></tr>';
+                  searchResults += '<tr draggable="true" data-all="' + url + '^' + aid + '^' + title + '^' + artist + '^' + duration + '^' + getGenre(genre) + '"><td>' + trimStr(title) + '</td><td>' + trimStr(artist) + '</td><td>' + getDuration(duration) + '</td><td>' + getGenre(genre) + '</td><td><a id="playing' + aid + '" onclick="playTrack(\'' + url + '\', \'' + aid + '\', \'' + title + '\', \'' + artist + '\', \'' + duration + '\', \'' + getGenre(genre) + '\')">Play</a>' + '</td></tr>';
               }
               if (searchResults == "") {
                   searchResults = "We could not find any matching songs, artists, or albums";
@@ -359,6 +373,8 @@
   // Display newly created playlist and other playlists by user
   function loadMenuPlaylists() {
 
+      document.getElementById("menu_playlists").innerHTML = "<center><div id='menu_loading_gif'><img src='/static/images/loading.gif'></div></center>";
+
       $.ajax({
           url: "/ajax/vkconfig/getMenuPlaylists",
           type: "POST",
@@ -368,8 +384,9 @@
                   var menu_playlists = "";
                   for (var i = 0; i < data["menu_playlists"].length; i++) {
                       var menu_playlist = data["menu_playlists"][i];
+                      var menu_playlist_id = menu_playlist.id;
                       var menu_playlist_name = menu_playlist.name;
-                      menu_playlists += "<ul id='drop-target'>" + menu_playlist_name + "</ul>";
+                      menu_playlists += "<ul id='drop-target' playlist_id='" + menu_playlist_id + "'>" + menu_playlist_name + "</ul>";
                   }
                   if (menu_playlists == "") {
                       $("#menu_playlists").html("<ul id='playlists_empty'>No playlists yet...</ul>");

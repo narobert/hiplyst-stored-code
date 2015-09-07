@@ -21,4 +21,4 @@ class Playlist(models.Model):
     total_duration = models.IntegerField()
 
     def for_json(self):
-        return {"name": self.playlist_name}
+        return {"id": self.id, "name": self.playlist_name}
